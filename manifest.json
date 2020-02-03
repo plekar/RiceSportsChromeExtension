@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "GTmetrix Analyzer Plugin",
-  "description": "This extension will analyze a page using GTmetrix",
+  "name": "Rice Sports Test",
+  "description": "This extension will help us test chrome extension usage.",
   "version": "1.0",
 
   "browser_action": {
