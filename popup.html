@@ -1,13 +1,56 @@
 <!doctype html>
 <html>
-  <head>
+  <head> <!-- Padding makes things bigger I suppose-->>
     <title>ParthPelumi Extension</title>
     <script src="popup.js"></script>
+    <style> 
+      .grid-container {
+        display: grid;
+        grid-column-gap: 20px;
+        grid-template-columns: auto auto auto;
+        background-color: black;
+        padding: 30px;
+      }
+      
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 50px; 
+        font-size: 20px;
+        text-align: center;
+      }
+      </style>
   </head>
-  <body>
-    <h1 style="padding:2px 6px 4px 6px; color: #555555; background-color: #eeeeee; border: #dddddd 2px solid; text-align:center">
-      Print Something</h1>
+  <body style="background-color: black;"> <!--Here I'm changing the entire backround color to grey-->>
+    <h1 style= "text-align: center">
+      <font color = "blue"> Rice Sports</font>
+    </h1>
+      <div class="grid-container">
+        <div class="grid-item">
+          <p>
+            <font color = "white"> Final</font>
+            <br><font color = "#000080"> WBBALL</font>  77
+            <br><font color = "#00FFFF"> Midd. Tenn</font>  60
+          </p>
+        </div>
+        <div class="grid-item">
+          <p>
+            <font color = "white"> Final</font>
+            <br><font color = "#000080"> MBBALL</font>  91
+            <br><font color = "#00FFFF"> Midd. Tenn</font>  83
+          </p>
+        </div>
+        <div class="grid-item">
+          <p>
+            <font color = "white"> 12PM CT</font>
+            <br><font color = "#000080"> WTEN</font>  2-3
+            <br><font color = "#FF0000"> Texas Tech</font>  2-2
+          </p>
+        </div>    
+      </div>
+
     <button id="checkPage">click for a surprise</button>
+    <p style = "color: white">by Oluwapelumi Fafowora and Parth Parulekar</p>
     <p id = "surprise"></p>
   </body>
 </html>
