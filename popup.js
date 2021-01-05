@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var checkPageButton = document.getElementById('checkPage');
-    checkPageButton.addEventListener('click', function() {
-      document.getElementById('surprise').innerHTML=Date();
-    }, false);
-  }, false);
+// document.addEventListener('DOMContentLoaded', function() {
+//     var checkPageButton = document.getElementById('checkPage');
+//     checkPageButton.addEventListener('click', function() {
+//       document.getElementById('surprise').innerHTML=Date();
+//     }, false);
+//   }, false);
 
 
 
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     //you get the element here 
-    var checkPageButton = document.getElementById('xmlButton');
+    var checkPageButton = document.getElementById('checkPage');
     //and then you listen for something to happen to that element(a click in this case)
     //and then the anonymous function below is executed
     checkPageButton.addEventListener('click', function() {
