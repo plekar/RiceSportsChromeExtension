@@ -11,7 +11,8 @@
     var x, i, xmlDoc;
     var txt = "";
     var orig_txt;
-    //var childNodeLst;
+    let dateDict = new Map();
+      //var childNodeLst;
     //var childNodeLen;
 
     //  const getData = () => {
@@ -48,6 +49,7 @@
                             let opponent_score;
                             let home_score;
                             let game_attributes = x[i].children; //the list of game attributes
+                            let dateKey;
                             console.log("game attributes", game_attributes)
                             //console.log(childNodeLst.length);
                             // let childNodeLen = game_attributes.length;
@@ -70,7 +72,13 @@
                                     sportType = "sport: " + attribute.innerHTML
                                     console.log(sportType)
                                   }else if (attribute.nodeName == "date"){
-                                    date = "date: " + attribute.innerHTML
+                                    date = "date: " + attribute.innerHTML;
+                                    dateKey = attribute.innerHTML.split(" ")[0];
+
+                                    if (!dateDict.has(dateKey)) {
+                                        dateDict.set(dateKey, []);
+                                    }
+                                    console.log(dateKey)
                                     console.log(date)
                                   }else if (attribute.nodeName == "opponent_score"){
                                     opponent_score = "opponent_score: " + attribute.innerHTML
@@ -87,29 +95,29 @@
                                   }
 
                             }
-                            txt += date + " " + sportType + " " + home_score + " " + opponent_score + "<br>\n";
 
-                            // console.log(sportType);
-                            // if (sportType == "WBB"){
-                            //         //the date plus the sport type plus the opponent
-                            //         console.log(count);
-                            //         // txt += x[i].children.namedItem("date").innerHTML + ": " + sportType + " vs " + x[i].children.namedItem("opponent").innerHTML + "<br>"
-                            // }
-                            // count +=1;
+                            //form the game data string for a game
+                            txt += date + " " + sportType + " " + home_score + " " + opponent_score + "<br>\n";
+                            let currGame = date + " " + sportType + " " + home_score + " " + opponent_score + "<br>\n";
+                            console.log(dateKey);
+                            console.log(dateDict.get(dateKey));
+                            // get the current games list associated to key
+                            let arr = dateDict.get(dateKey);
+                            // add new game data string to games list
+                            arr.push(currGame)
+                            console.log(arr)
                     }
-                    // console.log(count)
+
                     console.log(txt);
-                    // document.getElementById("demo").innerHTML = txt;
     
 
             }
     };
-    //xhttp.open("GET", "https://cors-anywhere.herokuapp.com/http://riceowls.com/services/calendar.ashx?type=rss", true);
-    
+
     //open prepares an http request to be sent
     xhttp.open("GET", "https://cors-anywhere.herokuapp.com/http://riceowls.com/services/scores.aspx", true); 
     //this actually sends the request
-    xhttp.send();     
+    xhttp.send();
     var checkPageButton = document.getElementById('checkPage');
     //and then you listen for something to happen to that element(a click in this case)
     //and then the anonymous function below is executed
