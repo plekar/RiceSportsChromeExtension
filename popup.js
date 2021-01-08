@@ -126,4 +126,9 @@
             // document.getElementById('surprise').innerHTML=Date();
             document.getElementById('surprise').innerHTML = txt;
     }, false);
+    //Testing out div stuff
+  // var newdiv = document.createElement("p")
+  // word = document.createTextNode("injected div with js")
+  // newdiv.appendChild(word)
+  // body.appendChild(newdiv)
 }, false);
