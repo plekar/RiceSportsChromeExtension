@@ -12,6 +12,7 @@
     var txt = "";
     var orig_txt;
     let dateDict = new Map();
+    // const dateDict = new Map();
       //var childNodeLst;
     //var childNodeLen;
 
@@ -21,7 +22,7 @@
 
 
     //you get the element here 
-    console.log("hello");
+    // console.log("hello");
     //onclick="loadXMLDoc()"
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -45,13 +46,14 @@
                           // console.log(x[i].childNodes.item(7));
                             //console.log(x[i].childNodes);
                             let gameDict = new Map();
+                            // const gameDict = new Map();
                             let sportType;
                             let date;
                             let opponent_score;
                             let home_score;
                             let game_attributes = x[i].children; //the list of game attributes
                             let dateKey;
-                            console.log("game attributes", game_attributes)
+                            // console.log("game attributes", game_attributes)
                             //console.log(childNodeLst.length);
                             // let childNodeLen = game_attributes.length;
                             // console.log(game_attributes.namedItem("sport_abbrev").innerHTML)
@@ -72,7 +74,7 @@
                                   if (attribute.nodeName == "sport_abbrev"){
                                     // sportType = "sport: " + attribute.innerHTML
                                     gameDict.set("sport", attribute.innerHTML)
-                                    console.log(sportType)
+                                    // console.log(sportType)
                                   }
                                   else if (attribute.nodeName == "time") {
                                       gameDict.set("time", attribute.innerHTML)
@@ -87,38 +89,38 @@
                                     if (!dateDict.has(dateKey)) {
                                         dateDict.set(dateKey, []);
                                     }
-                                    console.log(dateKey)
-                                    console.log(date)
+                                    // console.log(dateKey)
+                                    // console.log(date)
                                   }else if (attribute.nodeName == "opponent_score"){
                                     opponent_score = attribute.innerHTML
                                     if (attribute.innerHTML == "") {
                                       opponent_score = "No score yet";
                                     }
                                     gameDict.set("opponent_score", opponent_score)
-                                    console.log(opponent_score)
+                                    // console.log(opponent_score)
                                   }else if (attribute.nodeName == "team_score"){
                                     home_score = attribute.innerHTML
                                     if (attribute.innerHTML == "") {
                                       home_score = "No score yet";
                                     }
                                     gameDict.set("home_score", home_score)
-                                    console.log(home_score)
+                                    // console.log(home_score)
                                   }
                             }
 
                             //form the game data string for a game
                             txt += date + " " + sportType + " " + home_score + " " + opponent_score + "<br>\n";
                             let currGame = date + " " + sportType + " " + home_score + " " + opponent_score + "<br>\n";
-                            console.log(dateKey);
-                            console.log(dateDict.get(dateKey));
+                            // console.log(dateKey);
+                            // console.log(dateDict.get(dateKey));
                             // get the current games list associated to key
                             let arr = dateDict.get(dateKey);
                             // add new game data string to games list
                             arr.push(gameDict)
-                            console.log(arr)
+                            // console.log(arr)
                     }
 
-                    console.log(txt);
+                    // console.log(txt);
     
 
             }
@@ -128,18 +130,39 @@
     xhttp.open("GET", "https://cors-anywhere.herokuapp.com/http://riceowls.com/services/scores.aspx", true); 
     //this actually sends the request
     xhttp.send();
-    console.log(dateDict)
-    var checkPageButton = document.getElementById('checkPage');
-    //and then you listen for something to happen to that element(a click in this case)
-    //and then the anonymous function below is executed
-    checkPageButton.addEventListener('click', function() {
-            
-            // document.getElementById('surprise').innerHTML=Date();
-            document.getElementById('surprise').innerHTML = txt;
-    }, false);
+    console.log("DateDict", dateDict)
+    // var checkPageButton = document.getElementById('checkPage');
+    // //and then you listen for something to happen to that element(a click in this case)
+    // //and then the anonymous function below is executed
+    // checkPageButton.addEventListener('click', function() {
+    //
+    //         // document.getElementById('surprise').innerHTML=Date();
+    //         document.getElementById('surprise').innerHTML = txt;
+    // }, false);
     //Testing out div stuff
-  // var newdiv = document.createElement("p")
-  // word = document.createTextNode("injected div with js")
-  // newdiv.appendChild(word)
-  // body.appendChild(newdiv)
+    // console.log("before")
+
+      dateDict.forEach((values, keys) => {
+          console.log(keys, values)
+      })
+
+    // for (const [date, gameList] of dateDict) {
+    //     console.log("date", date)
+    //     for (game of gameList) {
+    //         console.log("game" + game)
+    //         var newdiv = document.createElement("div")
+    //         newdiv.style.background = "blue"
+    //         newdiv.style.color = "white"
+    //         word = document.createTextNode(date + game.get("sport") + game.get("time") + game.get("link") + game.get("home_score") + game.get("opponent_score"))
+    //         newdiv.appendChild(word)
+    //         document.body.appendChild(newdiv)
+    //         console.log(word)
+    //     }
+    // }
+    var newdiv = document.createElement("div")
+    word = document.createTextNode("injected div with js")
+    newdiv.style.background = "white"
+    newdiv.style.color = "blue";
+    newdiv.appendChild(word)
+    document.body.appendChild(newdiv)
 }, false);
