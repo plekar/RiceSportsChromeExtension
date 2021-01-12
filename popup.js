@@ -117,48 +117,44 @@
                             let arr = dateDict.get(dateKey);
                             // add new game data string to games list
                             arr.push(gameDict)
+                            dateDict.set(dateKey, arr);
                             // console.log(arr)
                     }
 
                     // console.log(txt);
-    
+                    console.log(dateDict)
+                    console.log(dateDict.size)
+                    // for (var i = 0; i < dateDict.size; i++) {
+                    //   console.log("index", i)
+                    //   console.log("val", dateDict[i])
+                    // }
+                    // const keys = dateDict.entries()
+                    // console.log("key", keys)
+                    // console.log("key1", keys.next(), keys.next().value)
 
+                    for (const [date , gameList] of dateDict.entries()) {
+                      console.log("date", date)
+                      for (game of gameList) {
+                          console.log("game" + game)
+                          var newdiv = document.createElement("div")
+                          newdiv.style.background = "blue"
+                          newdiv.style.color = "white"
+                          word = document.createTextNode(date + game.get("sport") + game.get("time") + game.get("link") + game.get("home_score") + game.get("opponent_score"))
+                          newdiv.appendChild(word)
+                          document.body.appendChild(newdiv)
+                          console.log(word)
+                      }
+                    }
             }
+
+            
     };
 
     //open prepares an http request to be sent
     xhttp.open("GET", "https://cors-anywhere.herokuapp.com/http://riceowls.com/services/scores.aspx", true); 
     //this actually sends the request
     xhttp.send();
-    console.log("DateDict", dateDict)
-    // var checkPageButton = document.getElementById('checkPage');
-    // //and then you listen for something to happen to that element(a click in this case)
-    // //and then the anonymous function below is executed
-    // checkPageButton.addEventListener('click', function() {
-    //
-    //         // document.getElementById('surprise').innerHTML=Date();
-    //         document.getElementById('surprise').innerHTML = txt;
-    // }, false);
-    //Testing out div stuff
-    // console.log("before")
-
-      dateDict.forEach((values, keys) => {
-          console.log(keys, values)
-      })
-
-    // for (const [date, gameList] of dateDict) {
-    //     console.log("date", date)
-    //     for (game of gameList) {
-    //         console.log("game" + game)
-    //         var newdiv = document.createElement("div")
-    //         newdiv.style.background = "blue"
-    //         newdiv.style.color = "white"
-    //         word = document.createTextNode(date + game.get("sport") + game.get("time") + game.get("link") + game.get("home_score") + game.get("opponent_score"))
-    //         newdiv.appendChild(word)
-    //         document.body.appendChild(newdiv)
-    //         console.log(word)
-    //     }
-    // }
+    
     var newdiv = document.createElement("div")
     word = document.createTextNode("injected div with js")
     newdiv.style.background = "white"
