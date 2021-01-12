@@ -137,7 +137,8 @@
                       for (game of gameList) {
                           console.log("game" + game)
                           var newdiv = document.createElement("div")
-                          newdiv.style.background = "blue"
+                          newdiv.class = "grid-item"
+                          // newdiv.style.background = "blue"
                           newdiv.style.color = "white"
                           word = document.createTextNode(date + game.get("sport") + game.get("time") + game.get("link") + game.get("home_score") + game.get("opponent_score"))
                           newdiv.appendChild(word)
