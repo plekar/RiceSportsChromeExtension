@@ -138,6 +138,7 @@
                           console.log("game" + game)
                           var game_anchor = document.createElement("a");
                           game_anchor.href = game.get("link")
+                          console.log("game link", game.get("link"))
 
                           var newdiv = document.createElement("div")
                           newdiv.className = "grid-item"
