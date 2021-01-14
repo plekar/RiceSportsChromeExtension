@@ -76,6 +76,9 @@
                                     gameDict.set("sport", attribute.innerHTML)
                                     // console.log(sportType)
                                   }
+                                  else if (attribute.nodeName == "opponent") {
+                                    gameDict.set("opponent_name", attribute.innerHTML)
+                                }
                                   else if (attribute.nodeName == "time") {
                                       gameDict.set("time", attribute.innerHTML)
                                   }
@@ -123,14 +126,8 @@
 
                     // console.log(txt);
                     console.log(dateDict)
-                    console.log(dateDict.size)
-                    // for (var i = 0; i < dateDict.size; i++) {
-                    //   console.log("index", i)
-                    //   console.log("val", dateDict[i])
-                    // }
-                    // const keys = dateDict.entries()
-                    // console.log("key", keys)
-                    // console.log("key1", keys.next(), keys.next().value)
+                    // console.log(dateDict.size)
+                    
 
                     for (const [date , gameList] of dateDict.entries()) {
                       console.log("date", date)
@@ -138,16 +135,58 @@
                           console.log("game" + game)
                           var game_anchor = document.createElement("a");
                           game_anchor.href = game.get("link")
+                          game_anchor.target = "_blank"
+                          game_anchor.className = "link_wrapping"
                           console.log("game link", game.get("link"))
 
                           var newdiv = document.createElement("div")
                           newdiv.className = "grid-item"
                           // newdiv.style.background = "blue"
-                          newdiv.style.color = "#bcbcbc"
+                          // newdiv.style.background = "#bcbcbc"
                           // word = document.createTextNode(date + game.get("sport") + game.get("time") + game.get("link") + game.get("home_score") + game.get("opponent_score"))
                           word = document.createElement("p")
                           word.innerHTML = date + "<br>" + game.get("sport") + "<br>" + game.get("time") + "<br>" + "<br>" + "home score: " + game.get("home_score") + "<br>" + "opponent score: " + game.get("opponent_score");
-                          newdiv.appendChild(word)
+                          word.style.color = "black";
+                          word.className = "game_text";
+
+                          //Adding Date Information
+                          date_info = document.createElement("p")
+                          date_info.innerText = date
+                          date_info.className = "date";
+                          newdiv.appendChild(date_info)
+                          
+                          //Adding Time Information
+                          time = document.createElement("p")
+                          time.innerText = game.get("time")
+                          time.className = "time";
+                          newdiv.appendChild(time)
+
+                          //Home Team sport
+                          home_team = document.createElement("p")
+                          home_team.innerText = game.get("sport")
+                          home_team.className = "home_team";
+                          newdiv.appendChild(home_team)
+
+                          //Home Team score
+                          home_score = document.createElement("p")
+                          home_score.innerText = game.get("home_score")
+                          home_score.className = "home_score";
+                          newdiv.appendChild(home_score)
+
+                          //Opposing Team 
+                          opp_team = document.createElement("p")
+                          opp_team.innerText = game.get("opponent_name")
+                          opp_team.className = "opponent_name";
+                          newdiv.appendChild(opp_team)
+
+                          //Opposing Team score
+                          opp_score = document.createElement("p")
+                          opp_score.innerText = game.get("opponent_score")
+                          opp_score.className = "opponent_score";
+                          newdiv.appendChild(opp_score)
+
+
+                          // newdiv.appendChild(word)
                           game_anchor.appendChild(newdiv);
                           document.body.appendChild(game_anchor)
                           console.log(word)
