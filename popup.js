@@ -143,7 +143,7 @@
                           var newdiv = document.createElement("div")
                           newdiv.className = "grid-item"
                           // newdiv.style.background = "blue"
-                          newdiv.style.color = "white"
+                          newdiv.style.color = "#bcbcbc"
                           // word = document.createTextNode(date + game.get("sport") + game.get("time") + game.get("link") + game.get("home_score") + game.get("opponent_score"))
                           word = document.createElement("p")
                           word.innerHTML = date + "<br>" + game.get("sport") + "<br>" + game.get("time") + "<br>" + "<br>" + "home score: " + game.get("home_score") + "<br>" + "opponent score: " + game.get("opponent_score");
@@ -163,10 +163,10 @@
     //this actually sends the request
     xhttp.send();
     
-    var newdiv = document.createElement("div")
-    word = document.createTextNode("injected div with js")
-    newdiv.style.background = "white"
-    newdiv.style.color = "blue";
-    newdiv.appendChild(word)
-    document.body.appendChild(newdiv)
+    // var newdiv = document.createElement("div")
+    // word = document.createTextNode("injected div with js")
+    // newdiv.style.background = "white"
+    // newdiv.style.color = "blue";
+    // newdiv.appendChild(word)
+    // document.body.appendChild(newdiv)
 }, false);
