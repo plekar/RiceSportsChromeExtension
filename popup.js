@@ -136,13 +136,19 @@
                       console.log("date", date)
                       for (game of gameList) {
                           console.log("game" + game)
+                          var game_anchor = document.createElement("a");
+                          game_anchor.href = game.get("link")
+
                           var newdiv = document.createElement("div")
                           newdiv.className = "grid-item"
                           // newdiv.style.background = "blue"
                           newdiv.style.color = "white"
-                          word = document.createTextNode(date + game.get("sport") + game.get("time") + game.get("link") + game.get("home_score") + game.get("opponent_score"))
+                          // word = document.createTextNode(date + game.get("sport") + game.get("time") + game.get("link") + game.get("home_score") + game.get("opponent_score"))
+                          word = document.createElement("p")
+                          word.innerHTML = date + "<br>" + game.get("sport") + "<br>" + game.get("time") + "<br>" + "<br>" + "home score: " + game.get("home_score") + "<br>" + "opponent score: " + game.get("opponent_score");
                           newdiv.appendChild(word)
-                          document.body.appendChild(newdiv)
+                          game_anchor.appendChild(newdiv);
+                          document.body.appendChild(game_anchor)
                           console.log(word)
                       }
                     }
