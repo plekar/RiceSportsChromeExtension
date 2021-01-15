@@ -97,14 +97,16 @@
                                   }else if (attribute.nodeName == "opponent_score"){
                                     opponent_score = attribute.innerHTML
                                     if (attribute.innerHTML == "") {
-                                      opponent_score = "No score yet";
+                                      // opponent_score = "No score yet";
+                                      opponent_score = "N/A";
                                     }
                                     gameDict.set("opponent_score", opponent_score)
                                     // console.log(opponent_score)
                                   }else if (attribute.nodeName == "team_score"){
                                     home_score = attribute.innerHTML
                                     if (attribute.innerHTML == "") {
-                                      home_score = "No score yet";
+                                      // home_score = "No score yet";
+                                      home_score = "N/A";
                                     }
                                     gameDict.set("home_score", home_score)
                                     // console.log(home_score)
@@ -151,13 +153,13 @@
 
                           //Adding Date Information
                           date_info = document.createElement("p")
-                          date_info.innerText = date
+                          date_info.innerText = date;
                           date_info.className = "date";
                           newdiv.appendChild(date_info)
                           
                           //Adding Time Information
                           time = document.createElement("p")
-                          time.innerText = game.get("time")
+                          time.innerText = "@" + game.get("time")
                           time.className = "time";
                           newdiv.appendChild(time)
 

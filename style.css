@@ -14,13 +14,61 @@
 }
   
 .grid-item {
+    font-family: Arial, sans-serif;
+    font-size : 30px;
     background-color: rgba(220, 220, 220, 0.8);
     border: 1px solid rgba(220, 220, 220, 0.8);
     color:black;
     border-radius: 5px;
-    padding: 5px; 
+    padding: 10px; 
     font-size: 10px;
     text-align: center;
-    width : 200px;
-    margin: 10px
+    /* width : 200px; */
+    height : 100px;
+    width: 150px;
+    margin: 10px;
+    position: relative;
+    /* position: absolute; */
 }
+.date {
+  font-size : 10px;
+  position: absolute;
+  top : 1px;
+  left: 5px;
+}
+.time {
+  font-size : 10px;
+  position: absolute;
+  top: 1px;
+  /* right: 5px */
+  left: 50px;
+}
+.home_team {
+  font-size : 15px;
+  position: absolute;
+  color: #001f59;
+  top: 20px;
+  left: 5px;
+  font-weight: bold;
+}
+.home_score {
+  font-size : 15px;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-weight: bold;
+}
+.opponent_name {
+  font-size : 15px;
+  position: absolute;
+  top: 40px;
+  left: 5px;
+  font-weight: bold;
+}
+.opponent_score {
+  font-size : 15px;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-weight: bold;
+} 
