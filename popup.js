@@ -53,6 +53,7 @@
                             let home_score;
                             let game_attributes = x[i].children; //the list of game attributes
                             let dateKey;
+                            let opponent_logo;
                             // console.log("game attributes", game_attributes)
                             //console.log(childNodeLst.length);
                             // let childNodeLen = game_attributes.length;
@@ -110,6 +111,13 @@
                                     }
                                     gameDict.set("home_score", home_score)
                                     // console.log(home_score)
+                                  } else if (attribute.nodeName == "opponent_logo"){
+                                      opponent_logo = attribute.innerHTML
+                                      if (attribute.innerHTML == "") {
+                                          // home_score = "No score yet";
+                                          opponent_logo = "N/A";
+                                      }
+                                      gameDict.set("opponent_logo", opponent_logo)
                                   }
                             }
 
@@ -180,6 +188,11 @@
                           opp_team.innerText = game.get("opponent_name")
                           opp_team.className = "opponent_name";
                           newdiv.appendChild(opp_team)
+
+                          opp_logo = document.createElement("img")
+                          opp_logo.src = game.get("opponent_logo")
+                          opp_logo.className = "opponent_logo";
+                          newdiv.appendChild(opp_logo)
 
                           //Opposing Team score
                           opp_score = document.createElement("p")

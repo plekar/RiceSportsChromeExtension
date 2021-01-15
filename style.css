@@ -48,7 +48,7 @@
   position: absolute;
   color: #001f59;
   top: 20px;
-  left: 5px;
+  left: 10px;
   font-weight: bold;
 }
 .home_score {
@@ -62,13 +62,22 @@
   font-size : 15px;
   position: absolute;
   top: 40px;
-  left: 5px;
+  left: 10px;
   font-weight: bold;
 }
+
+.opponent_logo {
+    height : 20px;
+    position: absolute;
+    top: 60px;
+    left: 1px;
+}
+
 .opponent_score {
   font-size : 15px;
   position: absolute;
   top: 40px;
   right: 40px;
   font-weight: bold;
-} 
+}
+
