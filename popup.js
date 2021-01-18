@@ -12,6 +12,14 @@
     var txt = "";
     var orig_txt;
     let dateDict = new Map();
+
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("date_div")
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+    }
     // const dateDict = new Map();
       //var childNodeLst;
     //var childNodeLen;
@@ -137,10 +145,17 @@
                     // console.log(txt);
                     // console.log(dateDict)
                     // console.log(dateDict.size)
-                    // row_item_count = 0 
+                    // row_item_count = 0
+                    var tab_div = document.createElement("div");
+                    tab_div.className = "tab"
                     for (const [date , gameList] of dateDict.entries()) {
                       console.log("date", date)
-                      var temp_div = document.createElement("div");
+                      var date_div = document.createElement("div");
+                      date_div.id = date
+                      date_div.className = "date_div";
+                      var date_button = document.createElement("button");
+                      date_button.innerHTML = date
+                      tab_div.appendChild(date_button)
                       for (game of gameList) {
                           // console.log("game" + game)
                           var game_anchor = document.createElement("a");
@@ -204,17 +219,18 @@
 
                           // newdiv.appendChild(word)
                           game_anchor.appendChild(newdiv);
-                          temp_div.appendChild(game_anchor);
+                          date_div.appendChild(game_anchor);
                           // document.body.appendChild(game_anchor)
                           // console.log(word)
                       }
-                      temp_div.className = "temp_div";
-                      console.log("tempdiv", temp_div)
-                      document.body.appendChild(temp_div)
+                      console.log("tempdiv", date_div)
+                      document.body.appendChild(date_div)
 
                     }
-                    
+                    document.body.prepend(tab_div)
             }
+
+
 
             
     };
@@ -231,3 +247,5 @@
     // newdiv.appendChild(word)
     // document.body.appendChild(newdiv)
 }, false);
+
+
