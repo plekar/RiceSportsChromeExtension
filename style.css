@@ -12,8 +12,16 @@
 .game_text {
   font-family: Arial, sans-serif;
 }
+
+.temp_div {
+  display: flex;
+}
+/* '>' means it will target elements which are direct children of a particular element */
+.temp_div > div { /* targeting the divs under temp_div*/
+  flex: 1;
+}
   
-.grid-item {
+.game_box {
     float:left;
     font-family: Arial, sans-serif;
     font-size : 30px;

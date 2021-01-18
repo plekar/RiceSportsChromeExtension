@@ -135,21 +135,22 @@
                     }
 
                     // console.log(txt);
-                    console.log(dateDict)
+                    // console.log(dateDict)
                     // console.log(dateDict.size)
-                    
+                    // row_item_count = 0 
                     for (const [date , gameList] of dateDict.entries()) {
                       console.log("date", date)
+                      var temp_div = document.createElement("div");
                       for (game of gameList) {
-                          console.log("game" + game)
+                          // console.log("game" + game)
                           var game_anchor = document.createElement("a");
                           game_anchor.href = game.get("link")
                           game_anchor.target = "_blank"
                           game_anchor.className = "link_wrapping"
-                          console.log("game link", game.get("link"))
+                          // console.log("game link", game.get("link"))
 
                           var newdiv = document.createElement("div")
-                          newdiv.className = "grid-item"
+                          newdiv.className = "game_box";
                           // newdiv.style.background = "blue"
                           // newdiv.style.background = "#bcbcbc"
                           // word = document.createTextNode(date + game.get("sport") + game.get("time") + game.get("link") + game.get("home_score") + game.get("opponent_score"))
@@ -203,10 +204,16 @@
 
                           // newdiv.appendChild(word)
                           game_anchor.appendChild(newdiv);
-                          document.body.appendChild(game_anchor)
-                          console.log(word)
+                          temp_div.appendChild(game_anchor);
+                          // document.body.appendChild(game_anchor)
+                          // console.log(word)
                       }
+                      temp_div.className = "temp_div";
+                      console.log("tempdiv", temp_div)
+                      document.body.appendChild(temp_div)
+
                     }
+                    
             }
 
             
