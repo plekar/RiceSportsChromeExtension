@@ -183,11 +183,12 @@
                           newdiv.appendChild(home_score)
 
                           //Opposing Team 
-                          opp_team = document.createElement("p")
-                          opp_team.innerText = game.get("opponent_name")
-                          opp_team.className = "opponent_name";
-                          newdiv.appendChild(opp_team)
-
+                          // opp_team = document.createElement("p")
+                          // opp_team.innerText = game.get("opponent_name")
+                          // opp_team.className = "opponent_name";
+                          // newdiv.appendChild(opp_team)
+                          
+                          //Opponent logo
                           opp_logo = document.createElement("img")
                           opp_logo.src = game.get("opponent_logo")
                           opp_logo.className = "opponent_logo";

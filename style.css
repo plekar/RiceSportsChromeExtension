@@ -59,19 +59,19 @@
   right: 40px;
   font-weight: bold;
 }
-.opponent_name {
+/* .opponent_name {
   font-size : 15px;
   position: absolute;
   top: 40px;
   left: 10px;
   font-weight: bold;
-}
+} */
 
 .opponent_logo {
     height : 20px;
     position: absolute;
     top: 60px;
-    left: 1px;
+    left: 15px;
 }
 
 .opponent_score {
