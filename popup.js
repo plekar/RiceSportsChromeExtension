@@ -39,16 +39,9 @@
       //split the string into an array of the month, day, year, values
       date_arr = date_str.split("/"); // [1, 23, 21]
       return month_map[date_arr[0]] + " " + date_arr[1];
-
     }
-    // console.log("Jan 23 = ", prettify_date("12/23/21"))
-   
-
-
-    //you get the element here 
-    // console.log("hello");
-    //onclick="loadXMLDoc()"
-    var xhttp = new XMLHttpRequest();
+    
+    var xhttp = new XMLHttpRequest(); //prepping the XML Request
     xhttp.onreadystatechange = function() {
             
             if (this.readyState == 4 && this.status == 200) {

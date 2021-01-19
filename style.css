@@ -15,6 +15,12 @@
 
 .date_div {
   display: flex;
+  animation: fadeEffect 1s;
+}
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 /* '>' means it will target elements which are direct children of a particular element */
 .date_div > div { /* targeting the divs under date_div*/
@@ -124,10 +130,11 @@
 }
 
 /* Style the tab content */
-.tabcontent {
+/* .tabcontent {
     display: none;
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
-}
+
+} */
 
