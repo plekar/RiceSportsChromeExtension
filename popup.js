@@ -31,6 +31,17 @@
         document.getElementById(dateID).style.display = "flex";
         evt.currentTarget.className += " active";
     }
+    //Making the date from numericals to word and number. 1/23/21 -> Jan 23
+    function prettify_date(date_str) {
+      //Mapping numerical month to alphabetical month
+      month_map = {"1": "Jan", "2": "Feb", "3": "Mar", "4": "Apr", "5": "May", "6": "Jun",
+                    "7": "Jul", "8" : "Aug", "9": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"};
+      //split the string into an array of the month, day, year, values
+      date_arr = date_str.split("/"); // [1, 23, 21]
+      return month_map[date_arr[0]] + " " + date_arr[1];
+
+    }
+    // console.log("Jan 23 = ", prettify_date("12/23/21"))
    
 
 
@@ -144,7 +155,7 @@
                       date_div.id = date
                       date_div.className = "date_div";
                       var date_button = document.createElement("button");
-                      date_button.innerHTML = date
+                      date_button.innerHTML = prettify_date(date)
                       date_button.className = "tablinks"
                       date_button.onclick = function(){openCity(event, date)};
                       tab_div.appendChild(date_button)
