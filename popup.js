@@ -31,13 +31,7 @@
         document.getElementById(dateID).style.display = "flex";
         evt.currentTarget.className += " active";
     }
-    // const dateDict = new Map();
-      //var childNodeLst;
-    //var childNodeLen;
-
-    //  const getData = () => {
-            
-    //  }
+   
 
 
     //you get the element here 
@@ -73,23 +67,11 @@
                             let game_attributes = x[i].children; //the list of game attributes
                             let dateKey;
                             let opponent_logo;
-                            // console.log("game attributes", game_attributes)
-                            //console.log(childNodeLst.length);
-                            // let childNodeLen = game_attributes.length;
-                            // console.log(game_attributes.namedItem("sport_abbrev").innerHTML)
-
 
                             //iteration over the information
                             // for (valIdx = 0; valIdx < childNodeLen; valIdx++) { //iterating through the game's attributes
                             for (attribute of game_attributes) { //iterating through the game's attributes
-                                    // console.log(childNodeLst[valIdx].innerHTML);
-                                    // if (childNodeLst[valIdx].innerHTML == "WBB"){
-                                    //         // console.log("does this check ever work?");
-                                    //         console.log("sport_abbrev: " + childNodeLst[valIdx].innerHTML);
-                                    //         sportType = "WBB";
-                                    //         count += 1
-                                    //         // txt += x[i].children.namedItem("date").innerHTML + ": " + sportType + " vs " + x[i].children.namedItem("opponent").innerHTML + "<br>"
-                                    // }
+                                   
                                   // console.log("spec attr", attribute)
                                   if (attribute.nodeName == "sport_abbrev"){
                                     // sportType = "sport: " + attribute.innerHTML
@@ -153,10 +135,7 @@
                             // console.log(arr)
                     }
 
-                    // console.log(txt);
-                    // console.log(dateDict)
-                    // console.log(dateDict.size)
-                    // row_item_count = 0
+                    //Creating the structure of the pages
                     var tab_div = document.createElement("div");
                     tab_div.className = "tab"
                     for (const [date , gameList] of dateDict.entries()) {
@@ -179,13 +158,6 @@
 
                           var newdiv = document.createElement("div")
                           newdiv.className = "game_box";
-                          // newdiv.style.background = "blue"
-                          // newdiv.style.background = "#bcbcbc"
-                          // word = document.createTextNode(date + game.get("sport") + game.get("time") + game.get("link") + game.get("home_score") + game.get("opponent_score"))
-                          word = document.createElement("p")
-                          word.innerHTML = date + "<br>" + game.get("sport") + "<br>" + game.get("time") + "<br>" + "<br>" + "home score: " + game.get("home_score") + "<br>" + "opponent score: " + game.get("opponent_score");
-                          word.style.color = "black";
-                          word.className = "game_text";
 
                           //Adding Date Information
                           date_info = document.createElement("p")
