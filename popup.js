@@ -13,12 +13,23 @@
     var orig_txt;
     let dateDict = new Map();
 
-    function openCity(evt, cityName) {
+    function openCity(evt, dateID) {
+        console.log(dateID)
+        // Declare all variables
         var i, tabcontent, tablinks;
+        // Get all elements with class="date_div" and hide them
         tabcontent = document.getElementsByClassName("date_div")
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(dateID).style.display = "block";
+        evt.currentTarget.className += " active";
     }
     // const dateDict = new Map();
       //var childNodeLst;
@@ -155,6 +166,8 @@
                       date_div.className = "date_div";
                       var date_button = document.createElement("button");
                       date_button.innerHTML = date
+                      date_button.className = "tablinks"
+                      date_button.onclick = function(){openCity(event, date)};
                       tab_div.appendChild(date_button)
                       for (game of gameList) {
                           // console.log("game" + game)
