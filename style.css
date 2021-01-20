@@ -26,6 +26,12 @@
 .date_div > div { /* targeting the divs under date_div*/
   flex: 1;
 }
+.row_div {
+  display:flex;
+}
+.row_div > div {
+  flex: 1;
+}
   
 .game_box {
     float:left;

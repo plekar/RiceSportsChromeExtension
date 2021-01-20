@@ -140,7 +140,8 @@
                             // console.log(arr)
                     }
 
-                    let row_limit = 3;
+                    console.log("datedict", dateDict)
+                    
                     //Creating the structure of the pages
                     var tab_div = document.createElement("div");
                     tab_div.className = "tab"
@@ -155,7 +156,12 @@
                       date_button.onclick = function(){openCity(event, date)};
                       tab_div.appendChild(date_button)
                       row_item_cnt = 0 //keeping track of how many items are in the row so far. 
-                      row_div = document.createElement("div");
+                      row_div = document.createElement("div"); //Gonna have three divs
+                      row_div.className = "row_div";
+                      let row_limit = 3;
+                      numgames = gameList.length;
+                      console.log("numgames", numgames)
+                      game_cnt = 1;
                       for (game of gameList) {
                           // console.log("game" + game)
                           var game_anchor = document.createElement("a");
@@ -212,9 +218,24 @@
 
                           // game_box_div.appendChild(word)
                           game_anchor.appendChild(game_box_div);
-                          date_div.appendChild(game_anchor);
-                          // document.body.appendChild(game_anchor)
-                          // console.log(word)
+                          // date_div.appendChild(game_anchor);
+
+                          row_div.appendChild(game_anchor)
+                          if (row_item_cnt == row_limit - 1) { //We stop at row limit-1 because we're starting our count at 0
+                            //add row div to the date div
+                            date_div.appendChild(row_div);
+                            //reset the row_item_cnt to 0
+                            row_item_cnt = 0
+                            //Create a new row div
+                            row_div = document.createElement("div");
+                            row_div.className = "row_div";
+                          }else if (game_cnt == numgames){
+                            date_div.appendChild(row_div);
+                          } else {
+                            row_item_cnt += 1
+                          }
+                          game_cnt += 1
+                         
                       }
                       console.log("tempdiv", date_div)
                       document.body.appendChild(date_div)
