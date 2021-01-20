@@ -29,7 +29,7 @@
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
         // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(dateID).style.display = "flex";
+        document.getElementById(dateID).style.display = "block";//"flex";
         evt.currentTarget.className += " active";
     }
     //Making the date from numericals to word and number. 1/23/21 -> Jan 23

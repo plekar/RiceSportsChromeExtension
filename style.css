@@ -14,7 +14,7 @@
 }
 
 .date_div {
-  display: flex;
+  /* display: flex; */
   animation: fadeEffect 1s;
 }
 /* Go from zero to full opacity */
@@ -23,13 +23,13 @@
   to {opacity: 1;}
 }
 /* '>' means it will target elements which are direct children of a particular element */
-.date_div > div { /* targeting the divs under date_div*/
+/* .date_div > div { 
   flex: 1;
-}
+} */
 .row_div {
   display:flex;
 }
-.row_div > div {
+.row_div > div { /* targeting the divs under date_div*/
   flex: 1;
 }
   
