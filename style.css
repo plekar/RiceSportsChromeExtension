@@ -107,6 +107,10 @@
     border: 1px solid white;
     background-color:  white;
     text-align: center;
+    display: flex;
+}
+.tab > button {
+  flex: 1
 }
 
 /* Style the buttons that are used to open the tab content */
