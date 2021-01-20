@@ -12,6 +12,7 @@
     var txt = "";
     var orig_txt;
     let dateDict = new Map();
+    
 
     function openCity(evt, dateID) {
         console.log(dateID)
@@ -139,6 +140,7 @@
                             // console.log(arr)
                     }
 
+                    let row_limit = 3;
                     //Creating the structure of the pages
                     var tab_div = document.createElement("div");
                     tab_div.className = "tab"
@@ -152,6 +154,8 @@
                       date_button.className = "tablinks"
                       date_button.onclick = function(){openCity(event, date)};
                       tab_div.appendChild(date_button)
+                      row_item_cnt = 0 //keeping track of how many items are in the row so far. 
+                      row_div = document.createElement("div");
                       for (game of gameList) {
                           // console.log("game" + game)
                           var game_anchor = document.createElement("a");
@@ -160,54 +164,54 @@
                           game_anchor.className = "link_wrapping"
                           // console.log("game link", game.get("link"))
 
-                          var newdiv = document.createElement("div")
-                          newdiv.className = "game_box";
+                          var game_box_div = document.createElement("div")
+                          game_box_div.className = "game_box";
 
                           //Adding Date Information
                           date_info = document.createElement("p")
                           date_info.innerText = date;
                           date_info.className = "date";
-                          newdiv.appendChild(date_info)
+                          game_box_div.appendChild(date_info)
                           
                           //Adding Time Information
                           time = document.createElement("p")
                           time.innerText = "@" + game.get("time")
                           time.className = "time";
-                          newdiv.appendChild(time)
+                          game_box_div.appendChild(time)
 
                           //Home Team sport
                           home_team = document.createElement("p")
                           home_team.innerText = game.get("sport")
                           home_team.className = "home_team";
-                          newdiv.appendChild(home_team)
+                          game_box_div.appendChild(home_team)
 
                           //Home Team score
                           home_score = document.createElement("p")
                           home_score.innerText = game.get("home_score")
                           home_score.className = "home_score";
-                          newdiv.appendChild(home_score)
+                          game_box_div.appendChild(home_score)
 
                           //Opposing Team 
                           // opp_team = document.createElement("p")
                           // opp_team.innerText = game.get("opponent_name")
                           // opp_team.className = "opponent_name";
-                          // newdiv.appendChild(opp_team)
+                          // game_box_div.appendChild(opp_team)
                           
                           //Opponent logo
                           opp_logo = document.createElement("img")
                           opp_logo.src = game.get("opponent_logo")
                           opp_logo.className = "opponent_logo";
-                          newdiv.appendChild(opp_logo)
+                          game_box_div.appendChild(opp_logo)
 
                           //Opposing Team score
                           opp_score = document.createElement("p")
                           opp_score.innerText = game.get("opponent_score")
                           opp_score.className = "opponent_score";
-                          newdiv.appendChild(opp_score)
+                          game_box_div.appendChild(opp_score)
 
 
-                          // newdiv.appendChild(word)
-                          game_anchor.appendChild(newdiv);
+                          // game_box_div.appendChild(word)
+                          game_anchor.appendChild(game_box_div);
                           date_div.appendChild(game_anchor);
                           // document.body.appendChild(game_anchor)
                           // console.log(word)
@@ -229,12 +233,12 @@
     //this actually sends the request
     xhttp.send();
     
-    // var newdiv = document.createElement("div")
+    // var game_box_div = document.createElement("div")
     // word = document.createTextNode("injected div with js")
-    // newdiv.style.background = "white"
-    // newdiv.style.color = "blue";
-    // newdiv.appendChild(word)
-    // document.body.appendChild(newdiv)
+    // game_box_div.style.background = "white"
+    // game_box_div.style.color = "blue";
+    // game_box_div.appendChild(word)
+    // document.body.appendChild(game_box_div)
 }, false);
 
 
