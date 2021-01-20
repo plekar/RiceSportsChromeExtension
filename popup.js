@@ -12,6 +12,18 @@
     var txt = "";
     var orig_txt;
     let dateDict = new Map();
+    var today = new Date()
+    console.log("today's date", today)
+    console.log("today's day", today.getDate())
+    let dd = String(today.getDate());
+    // console.log("today's month", today.getMonth() + 1) //January is 0
+    let mm = String(today.getMonth() + 1);
+    // console.log("today's yr", today.getFullYear()) //January is 0
+    let yr = String(today.getFullYear())
+    today_date = mm + "/" + dd + "/" + yr
+    // console.log("current date", today_date)
+
+
     
 
     function openCity(evt, dateID) {
@@ -153,6 +165,7 @@
                       var date_button = document.createElement("button");
                       date_button.innerHTML = prettify_date(date)
                       date_button.className = "tablinks"
+                      date_button.id = "tab_" + date;
                       date_button.onclick = function(){openCity(event, date)};
                       tab_div.appendChild(date_button)
                       row_item_cnt = 0 //keeping track of how many items are in the row so far. 
@@ -242,6 +255,23 @@
 
                     }
                     document.body.prepend(tab_div)
+                    let dd = String(today.getDate());
+                    // console.log("today's month", today.getMonth() + 1) //January is 0
+                    let mm = String(today.getMonth() + 1);
+                    // console.log("today's yr", today.getFullYear()) //January is 0
+                    let yr = String(today.getFullYear())
+                    today_date = mm + "/" + dd + "/" + yr
+                    // today_date = "1" + "/" + "23" + "/" + "2021"
+                    //Setting Default Tab
+
+                    if (dateDict.has(today_date)){
+                      document.getElementById("tab_" + today_date).click();
+                    } else { //Get the closest date. Let's default to the third one
+                      keylist = Array.from(dateDict.keys())
+                      close_date = keylist[2]
+                      console.log("close date", close_date)
+                      document.getElementById("tab_" + close_date).click();
+                    }
             }
 
 
