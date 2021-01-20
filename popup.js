@@ -210,11 +210,11 @@
                           home_score.className = "home_score";
                           game_box_div.appendChild(home_score)
 
-                          //Opposing Team 
-                          // opp_team = document.createElement("p")
-                          // opp_team.innerText = game.get("opponent_name")
-                          // opp_team.className = "opponent_name";
-                          // game_box_div.appendChild(opp_team)
+                          // Opposing Team 
+                          opp_team = document.createElement("p")
+                          opp_team.innerText = game.get("opponent_name")
+                          opp_team.className = "opponent_name";
+                          game_box_div.appendChild(opp_team)
                           
                           //Opponent logo
                           opp_logo = document.createElement("img")

@@ -79,13 +79,14 @@
   right: 40px;
   font-weight: bold;
 }
-/* .opponent_name {
+.opponent_name {
   font-size : 15px;
+  font-family: Arial, Helvetica, sans-serif;
   position: absolute;
   top: 40px;
-  left: 10px;
+  left: 30px;
   font-weight: bold;
-} */
+}
 
 .opponent_logo {
     height : 20px;
