@@ -25,7 +25,7 @@
 
 
     
-
+    //Add a function for abbreviating 
     function openCity(evt, dateID) {
         console.log(dateID)
         // Declare all variables
