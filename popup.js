@@ -25,7 +25,24 @@
 
 
     
-    //TODO: Add a function for abbreviating 
+    //TODO: Add a function for abbreviating
+
+    //Abbreviating the Opponent's school name into acronyms
+    function abbreviate_name(name){
+      name_array = name.split(" ");
+      if (name_array.length == 1) {
+        return name
+      }
+      if (name_array.length > 1) {
+        acronyms = ""
+        for (word of name_array) {
+          acronyms += word.charAt(0)
+        }
+        return acronyms
+      }
+
+    }
+
     function openCity(evt, dateID) {
         console.log(dateID)
         // Declare all variables
@@ -212,7 +229,7 @@
 
                           // Opposing Team 
                           opp_team = document.createElement("p")
-                          opp_team.innerText = game.get("opponent_name")
+                          opp_team.innerText = abbreviate_name(game.get("opponent_name"))
                           opp_team.className = "opponent_name";
                           game_box_div.appendChild(opp_team)
                           
