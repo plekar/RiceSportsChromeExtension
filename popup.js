@@ -29,6 +29,11 @@
 
     //Abbreviating the Opponent's school name into acronyms
     function abbreviate_name(name){
+
+      //TODO: Accounting for extra spaces at the end
+      //TODO: Account for the #number sign stuff
+      name = name.replace(/[^A-Za-z\s]/g, "")
+      name = name.trim()
       name_array = name.split(" ");
       if (name_array.length == 1) {
         return name
@@ -38,7 +43,7 @@
         for (word of name_array) {
           acronyms += word.charAt(0)
         }
-        return acronyms
+        return acronyms.toUpperCase()
       }
 
     }
