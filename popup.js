@@ -222,6 +222,11 @@
                           sport = document.createElement("p")
                           sport.innerText = game.get("sport")
                           game_header_div.appendChild(sport)
+                          var sportImg = document.createElement("img")
+                          sportImg.className="sport_image"
+                          sportImg.setAttribute("src", chrome.runtime.getURL(sportImgs.get(sport.innerText)))
+
+                          game_header_div.appendChild(sportImg)
 
                           var game_body_div = document.createElement("div")
                           game_body_div.className = "game_body";

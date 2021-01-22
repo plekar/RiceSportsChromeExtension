@@ -32,6 +32,11 @@
 .row_div > div { /* targeting the divs under date_div*/
   flex: 1;
 }
+
+.sport_image {
+    height: 40px;
+    float: right;
+}
   
 .game_body {
     float:left;
