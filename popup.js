@@ -13,7 +13,19 @@
     var orig_txt;
     let dateDict = new Map();
     var today = new Date()
-    console.log("today's date", today)
+
+    // Sport Images Dictionary
+    let sportImgs = new Map();
+    sportImgs.set("WSWIM", 'women_swimming.png')
+    sportImgs.set("WBB", 'women_basketball.png')
+    sportImgs.set("WTEN", 'women_tennis.png')
+    sportImgs.set("WVB", 'women_volleyball.png')
+    sportImgs.set("BB", 'men_baseball.png')
+    sportImgs.set("MBB", 'men_basketball.png')
+    sportImgs.set('MGOLF', 'men_golf.png')
+    sportImgs.set('MTEN', 'men_tennis.png')
+
+      console.log("today's date", today)
     console.log("today's day", today.getDate())
     let dd = String(today.getDate());
     // console.log("today's month", today.getMonth() + 1) //January is 0
@@ -202,55 +214,67 @@
                           game_anchor.target = "_blank"
                           game_anchor.className = "link_wrapping"
                           // console.log("game link", game.get("link"))
+                          var game_box_div = document.createElement("div");
+                          // game_box_div.className
 
-                          var game_box_div = document.createElement("div")
-                          game_box_div.className = "game_box";
+                          // Game Header div, above each Game Body div
+                          var game_header_div = document.createElement("div");
+                          sport = document.createElement("p")
+                          sport.innerText = game.get("sport")
+                          game_header_div.appendChild(sport)
+
+                          var game_body_div = document.createElement("div")
+                          game_body_div.className = "game_body";
 
                           //Adding Date Information
                           date_info = document.createElement("p")
                           date_info.innerText = date;
                           date_info.className = "date";
-                          game_box_div.appendChild(date_info)
+                          game_body_div.appendChild(date_info)
                           
                           //Adding Time Information
                           time = document.createElement("p")
                           time.innerText = "@" + game.get("time")
                           time.className = "time";
-                          game_box_div.appendChild(time)
+                          game_body_div.appendChild(time)
 
                           //Home Team sport
                           home_team = document.createElement("p")
-                          home_team.innerText = game.get("sport")
+                          // home_team.innerText = game.get("sport")
+                          home_team.innerText = "Owls"
                           home_team.className = "home_team";
-                          game_box_div.appendChild(home_team)
+                          game_body_div.appendChild(home_team)
 
                           //Home Team score
                           home_score = document.createElement("p")
                           home_score.innerText = game.get("home_score")
                           home_score.className = "home_score";
-                          game_box_div.appendChild(home_score)
+                          game_body_div.appendChild(home_score)
 
                           // Opposing Team 
                           opp_team = document.createElement("p")
                           opp_team.innerText = abbreviate_name(game.get("opponent_name"))
                           opp_team.className = "opponent_name";
-                          game_box_div.appendChild(opp_team)
+                          game_body_div.appendChild(opp_team)
                           
                           //Opponent logo
                           opp_logo = document.createElement("img")
                           opp_logo.src = game.get("opponent_logo")
                           opp_logo.className = "opponent_logo";
-                          game_box_div.appendChild(opp_logo)
+                          game_body_div.appendChild(opp_logo)
 
                           //Opposing Team score
                           opp_score = document.createElement("p")
                           opp_score.innerText = game.get("opponent_score")
                           opp_score.className = "opponent_score";
-                          game_box_div.appendChild(opp_score)
+                          game_body_div.appendChild(opp_score)
 
-
-                          // game_box_div.appendChild(word)
+                          game_box_div.appendChild(game_header_div)
+                          game_box_div.appendChild(game_body_div)
+                          // game_body_div.appendChild(word)
                           game_anchor.appendChild(game_box_div);
+
+                          // game_anchor.appendChild(game_body_div);
                           // date_div.appendChild(game_anchor);
 
                           row_div.appendChild(game_anchor)
@@ -304,12 +328,12 @@
     //this actually sends the request
     xhttp.send();
     
-    // var game_box_div = document.createElement("div")
+    // var game_body_div = document.createElement("div")
     // word = document.createTextNode("injected div with js")
-    // game_box_div.style.background = "white"
-    // game_box_div.style.color = "blue";
-    // game_box_div.appendChild(word)
-    // document.body.appendChild(game_box_div)
+    // game_body_div.style.background = "white"
+    // game_body_div.style.color = "blue";
+    // game_body_div.appendChild(word)
+    // document.body.appendChild(game_body_div)
 }, false);
 
 

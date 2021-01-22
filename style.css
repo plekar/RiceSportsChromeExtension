@@ -33,7 +33,7 @@
   flex: 1;
 }
   
-.game_box {
+.game_body {
     float:left;
     font-family: Arial, sans-serif;
     font-size : 30px;

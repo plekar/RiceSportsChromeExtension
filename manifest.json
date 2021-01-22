@@ -1,6 +1,15 @@
 {
   "manifest_version": 2,
 
+  "web_accessible_resources": ["women_swimming.png",
+    "women_basketball.png",
+    "women_tennis.png",
+    "women_volleyball.png",
+    "men_baseball.png",
+    "men_basketball.png",
+    "men_golf.png",
+    "men_tennis.png"],
+
   "name": "Rice Sports Test",
   "description": "This extension will help us test chrome extension usage.",
   "version": "1.0",
