@@ -268,9 +268,11 @@
                           game_body_div.appendChild(home_team_div)
 
                           opp_team_div = document.createElement("div")//Opponent team's div
+                          opp_team_div.className = "opp_team_div";
 
                           //Opponent logo
                           opp_logo_span = document.createElement("span")
+                          opp_logo_span.className = "opp_logo_span"
                           opp_logo = document.createElement("img")
                           opp_logo.src = game.get("opponent_logo")
                           opp_logo.className = "opponent_logo";

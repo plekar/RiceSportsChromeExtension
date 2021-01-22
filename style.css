@@ -108,6 +108,14 @@
   font-weight: bold;
 }
 
+.opp_team_div {
+  padding-left: 5px;
+  margin-left: 5px;
+}
+.opp_logo_span {
+  margin-left: 5px;
+}
+
 .opponent_logo {
     height : 20px;
     /* position: absolute;
