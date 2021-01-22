@@ -247,36 +247,58 @@
                           time.className = "time";
                           game_body_div.appendChild(time)
 
+                          //Creating the home team information div
+                          home_team_div = document.createElement("div");
                           //Home Team sport
-                          home_team = document.createElement("p")
+                          // home_team_name = document.createElement("p")
+                          home_team_name = document.createElement("span")
                           // home_team.innerText = game.get("sport")
-                          home_team.innerText = "Owls"
-                          home_team.className = "home_team";
-                          game_body_div.appendChild(home_team)
+                          home_team_name.innerText = "Owls"
+                          home_team_name.className = "home_team_name";
+                          // game_body_div.appendChild(home_team)
+                          home_team_div.appendChild(home_team_name)
 
                           //Home Team score
-                          home_score = document.createElement("p")
+                          // home_score = document.createElement("p")
+                          home_score = document.createElement("span")
                           home_score.innerText = game.get("home_score")
                           home_score.className = "home_score";
-                          game_body_div.appendChild(home_score)
+                          // game_body_div.appendChild(home_score)
+                          home_team_div.appendChild(home_score)
+                          game_body_div.appendChild(home_team_div)
 
-                          // Opposing Team 
-                          opp_team = document.createElement("p")
-                          opp_team.innerText = abbreviate_name(game.get("opponent_name"))
-                          opp_team.className = "opponent_name";
-                          game_body_div.appendChild(opp_team)
-                          
+                          opp_team_div = document.createElement("div")//Opponent team's div
+
                           //Opponent logo
+                          opp_logo_span = document.createElement("span")
                           opp_logo = document.createElement("img")
                           opp_logo.src = game.get("opponent_logo")
                           opp_logo.className = "opponent_logo";
-                          game_body_div.appendChild(opp_logo)
+                          opp_logo_span.appendChild(opp_logo)
+                          // game_body_div.appendChild(opp_logo)
+                          opp_team_div.appendChild(opp_logo_span);
+
+                          // Opposing Team 
+                          // opp_team_name = document.createElement("p")
+                          opp_team_name = document.createElement("span")
+                          opp_team_name.innerText = abbreviate_name(game.get("opponent_name"))
+                          opp_team_name.className = "opponent_name";
+                          // game_body_div.appendChild(opp_team)
+                          opp_team_div.appendChild(opp_team_name)
+                          
+                          
 
                           //Opposing Team score
-                          opp_score = document.createElement("p")
+                          opp_score = document.createElement("span")
                           opp_score.innerText = game.get("opponent_score")
                           opp_score.className = "opponent_score";
-                          game_body_div.appendChild(opp_score)
+                          // game_body_div.appendChild(opp_score)
+                          opp_team_div.appendChild(opp_score)
+
+                          //Adding the opponent team information to the game body
+                          game_body_div.appendChild(opp_team_div)
+
+
 
                           game_box_div.appendChild(game_header_div)
                           game_box_div.appendChild(game_body_div)
