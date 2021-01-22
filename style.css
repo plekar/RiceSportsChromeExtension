@@ -32,14 +32,25 @@
 .row_div > div { /* targeting the divs under date_div*/
   flex: 1;
 }
+.game_header_div {
+  display: flex;
+  /* padding: 20px; */
+  margin: 1px;
+  padding: 1px;
+  padding-left: 10px;
+}
 .sport_type{
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 20px;
+  color: #001f59;
+  margin-bottom: 1px;
 }
 .sport_image {
     height: 40px;
     float: right;
+    right: 30px;
+    margin-left: 5px;
 }
   
 .game_body {
@@ -50,13 +61,14 @@
     border: 1px solid rgba(220, 220, 220, 0.8);
     color:black;
     border-radius: 5px;
-    padding: 10px; 
+    padding: 10px;
+    padding-top: 1px; 
     font-size: 10px;
     text-align: center;
     /* width : 200px; */
     height : 100px;
     width: 150px;
-    margin: 10px;
+    margin: 5px;
     position: relative;
     /* position: absolute; */
 }

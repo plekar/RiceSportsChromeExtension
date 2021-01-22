@@ -215,10 +215,13 @@
                           game_anchor.className = "link_wrapping"
                           // console.log("game link", game.get("link"))
                           var game_box_div = document.createElement("div");
-                          // game_box_div.className
+                          // game_box_div.className = "game_box_div";
 
                           // Game Header div, above each Game Body div
                           var game_header_div = document.createElement("div");
+                          game_header_div.className = "game_header_div";
+
+                          //Header - sport type
                           sport = document.createElement("p")
                           sport.innerText = game.get("sport")
                           sport.className = "sport_type";
