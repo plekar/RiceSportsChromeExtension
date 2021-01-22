@@ -235,14 +235,14 @@
                           var game_body_div = document.createElement("div")
                           game_body_div.className = "game_body";
 
-                          //Adding Date Information
-                          date_info = document.createElement("p")
-                          date_info.innerText = date;
-                          date_info.className = "date";
-                          game_body_div.appendChild(date_info)
+                          // //Adding Date Information
+                          // date_info = document.createElement("p")
+                          // date_info.innerText = date;
+                          // date_info.className = "date";
+                          // game_body_div.appendChild(date_info)
                           
                           //Adding Time Information
-                          time = document.createElement("p")
+                          time = document.createElement("div")
                           time.innerText = "@" + game.get("time")
                           time.className = "time";
                           game_body_div.appendChild(time)

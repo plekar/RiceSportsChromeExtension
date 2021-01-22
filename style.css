@@ -72,55 +72,54 @@
     position: relative;
     /* position: absolute; */
 }
-.date {
+/* .date {
   font-size : 10px;
   position: absolute;
   top : 1px;
   left: 5px;
-}
+} */
 .time {
   font-size : 10px;
-  position: absolute;
+  /* position: absolute;
   top: 1px;
-  /* right: 5px */
-  left: 50px;
+  left: 50px; */
 }
-.home_team {
+.home_team_name {
   font-size : 15px;
-  position: absolute;
+  /* position: absolute; */
   color: #001f59;
-  top: 20px;
-  left: 10px;
+  /* top: 20px;
+  left: 10px; */
   font-weight: bold;
 }
 .home_score {
   font-size : 15px;
-  position: absolute;
+  /* position: absolute;
   top: 20px;
-  right: 40px;
+  right: 40px; */
   font-weight: bold;
 }
 .opponent_name {
   font-size : 15px;
   font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
+  /* position: absolute;
   top: 40px;
-  left: 30px;
+  left: 30px; */
   font-weight: bold;
 }
 
 .opponent_logo {
     height : 20px;
-    position: absolute;
+    /* position: absolute;
     top: 60px;
-    left: 15px;
+    left: 15px; */
 }
 
 .opponent_score {
   font-size : 15px;
-  position: absolute;
+  /* position: absolute;
   top: 40px;
-  right: 40px;
+  right: 40px; */
   font-weight: bold;
 }
 
