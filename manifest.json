@@ -1,7 +1,9 @@
 {
   "manifest_version": 2,
 
-  "web_accessible_resources": ["women_swimming.png",
+  "web_accessible_resources": [
+    "rice_logo_from_xml.png",
+    "women_swimming.png",
     "women_basketball.png",
     "women_tennis.png",
     "women_volleyball.png",

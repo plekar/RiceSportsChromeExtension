@@ -88,6 +88,9 @@
   display: flex;
   margin-top: 15px;
 }
+.home_logo_img {
+  height: 20px;
+}
 .home_team_name {
   font-size : 15px;
   /* position: absolute; */

@@ -251,6 +251,16 @@
                           home_team_div = document.createElement("div");
                           home_team_div.className = "home_team_div";
 
+                          //Home logo
+                          home_logo_span = document.createElement("span")
+                          home_logo_span.className = "home_logo_span"
+                          home_logo_img = document.createElement("img")
+                          home_logo_img.setAttribute("src", chrome.runtime.getURL("rice_logo_from_xml.png"))
+                          home_logo_img.className = "home_logo_img";
+                          home_logo_span.appendChild(home_logo_img)
+                          // game_body_div.appendChild(opp_logo)
+                          home_team_div.appendChild(home_logo_span);
+
                           //Home Team sport
                           // home_team_name = document.createElement("p")
                           home_team_name = document.createElement("span")
