@@ -84,6 +84,10 @@
   top: 1px;
   left: 50px; */
 }
+.home_team_div {
+  display: flex;
+  margin-top: 15px;
+}
 .home_team_name {
   font-size : 15px;
   /* position: absolute; */
@@ -98,6 +102,7 @@
   top: 20px;
   right: 40px; */
   font-weight: bold;
+  margin-left: 20px;
 }
 .opponent_name {
   font-size : 15px;
@@ -111,6 +116,8 @@
 .opp_team_div {
   padding-left: 5px;
   margin-left: 5px;
+  display: flex;
+  margin-top: 20px;
 }
 .opp_logo_span {
   margin-left: 5px;
@@ -129,6 +136,7 @@
   top: 40px;
   right: 40px; */
   font-weight: bold;
+  margin-left: 20px;
 }
 
 .tab {

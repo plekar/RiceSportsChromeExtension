@@ -249,6 +249,8 @@
 
                           //Creating the home team information div
                           home_team_div = document.createElement("div");
+                          home_team_div.className = "home_team_div";
+
                           //Home Team sport
                           // home_team_name = document.createElement("p")
                           home_team_name = document.createElement("span")
