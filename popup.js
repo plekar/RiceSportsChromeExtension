@@ -221,6 +221,7 @@
                           var game_header_div = document.createElement("div");
                           sport = document.createElement("p")
                           sport.innerText = game.get("sport")
+                          sport.className = "sport_type";
                           game_header_div.appendChild(sport)
                           var sportImg = document.createElement("img")
                           sportImg.className="sport_image"

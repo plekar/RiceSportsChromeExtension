@@ -32,7 +32,11 @@
 .row_div > div { /* targeting the divs under date_div*/
   flex: 1;
 }
-
+.sport_type{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
 .sport_image {
     height: 40px;
     float: right;
