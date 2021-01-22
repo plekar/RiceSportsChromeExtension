@@ -163,10 +163,10 @@
                                     // console.log(home_score)
                                   } else if (attribute.nodeName == "opponent_logo"){
                                       opponent_logo = attribute.innerHTML
-                                      if (attribute.innerHTML == "") {
-                                          // home_score = "No score yet";
-                                          opponent_logo = "N/A";
-                                      }
+                                      // if (attribute.innerHTML == "") {
+                                      //     // home_score = "No score yet";
+                                      //     opponent_logo = "N/A";
+                                      // }
                                       gameDict.set("opponent_logo", opponent_logo)
                                   }
                             }
