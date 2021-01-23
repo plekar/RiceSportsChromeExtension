@@ -130,15 +130,20 @@
                                   else if (attribute.nodeName == "opponent") {
                                     gameDict.set("opponent_name", attribute.innerHTML)
                                 }
-                                  else if (attribute.nodeName == "time") {
-                                      gameDict.set("time", attribute.innerHTML)
-                                  }
+                                  // else if (attribute.nodeName == "time") {
+                                  //     gameDict.set("time", attribute.innerHTML)
+                                  // }
                                   else if (attribute.nodeName == "boxscore_link") {
                                       gameDict.set("link", attribute.innerHTML)
                                   }
                                   else if (attribute.nodeName == "date"){
                                     date = "date: " + attribute.innerHTML;
                                     dateKey = attribute.innerHTML.split(" ")[0];
+                                    console.log("date and time", attribute.innerHTML.split(" "))
+                                    time_number = attribute.innerHTML.split(" ")[1]
+                                    pm_or_am = attribute.innerHTML.split(" ")[2]
+                                    adjusted_time = time_number.substring(0, time_number.length - 3)
+                                    gameDict.set("time", adjusted_time + " " + pm_or_am + " CST")
 
                                     if (!dateDict.has(dateKey)) {
                                         dateDict.set(dateKey, []);
@@ -235,12 +240,6 @@
                           var game_body_div = document.createElement("div")
                           game_body_div.className = "game_body";
 
-                          // //Adding Date Information
-                          // date_info = document.createElement("p")
-                          // date_info.innerText = date;
-                          // date_info.className = "date";
-                          // game_body_div.appendChild(date_info)
-                          
                           //Adding Time Information
                           time = document.createElement("div")
                           time.innerText = game.get("time")
