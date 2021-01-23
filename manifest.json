@@ -17,7 +17,7 @@
   "version": "1.0",
 
   "browser_action": {
-   "default_icon": "transpOwl.png",
+   "default_icon": "rice_logo_icon.png",
    "default_popup": "popup.html"
   },
   "permissions": [
