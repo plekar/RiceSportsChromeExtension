@@ -20,6 +20,9 @@
    "default_icon": "rice_logo_icon.png",
    "default_popup": "popup.html"
   },
+  "icons": {
+    "128": "bigger_rice_icon.png"
+  },
   "permissions": [
    "activeTab"
    ]
