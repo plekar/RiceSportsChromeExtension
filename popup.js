@@ -37,8 +37,16 @@
 
 
     
-    //TODO: Add a function for abbreviating
-
+    //This function changes the time to Final if the game is over and Postponed if the game was postponed
+    function update_time(time, status) {
+      if (status == "O") {
+        return "Final"
+      }
+      if (status == "P") {
+        return "Postponed"
+      }
+      return time
+    }
     //Abbreviating the Opponent's school name into acronyms
     function abbreviate_name(name){
       //Removing numbers, #, and leading and trailing spaces
@@ -130,9 +138,9 @@
                                   else if (attribute.nodeName == "opponent") {
                                     gameDict.set("opponent_name", attribute.innerHTML)
                                 }
-                                  // else if (attribute.nodeName == "time") {
-                                  //     gameDict.set("time", attribute.innerHTML)
-                                  // }
+                                  else if (attribute.nodeName == "status") {
+                                      gameDict.set("status", attribute.innerHTML)
+                                  }
                                   else if (attribute.nodeName == "boxscore_link") {
                                       gameDict.set("link", attribute.innerHTML)
                                   }
@@ -242,7 +250,7 @@
 
                           //Adding Time Information
                           time = document.createElement("div")
-                          time.innerText = game.get("time")
+                          time.innerText = update_time(game.get("time"), game.get("status")) 
                           time.className = "time";
                           game_body_div.appendChild(time)
 
