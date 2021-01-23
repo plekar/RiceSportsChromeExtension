@@ -96,6 +96,15 @@
       date_arr = date_str.split("/"); // [1, 23, 21]
       return month_map[date_arr[0]] + " " + date_arr[1];
     }
+
+    function choose_working_link(boxscore_link, recap_link) {
+      if (boxscore_link != "") {
+        return boxscore_link
+      } else {
+        return recap_link
+      }
+
+    }
     
     var xhttp = new XMLHttpRequest(); //prepping the XML Request
     xhttp.onreadystatechange = function() {
@@ -148,6 +157,9 @@
                                   }
                                   else if (attribute.nodeName == "boxscore_link") {
                                     gameDict.set("link", attribute.innerHTML)
+                                  }
+                                  else if (attribute.nodeName == "recap_link"){
+                                    gameDict.set("recap_link", attribute.innerHTML)
                                   }
                                   else if (attribute.nodeName == "date"){
                                     date = "date: " + attribute.innerHTML;
@@ -229,7 +241,7 @@
                       for (game of gameList) {
                           // console.log("game" + game)
                           var game_anchor = document.createElement("a");
-                          game_anchor.href = game.get("link")
+                          game_anchor.href = choose_working_link(game.get("link"), game.get("recap_link"))
                           game_anchor.target = "_blank"
                           game_anchor.className = "link_wrapping"
                           // console.log("game link", game.get("link"))
