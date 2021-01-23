@@ -177,17 +177,15 @@
                                     // console.log(date)
                                   }else if (attribute.nodeName == "opponent_score"){
                                     opponent_score = attribute.innerHTML
-                                    if (attribute.innerHTML == "") {
-                                      // opponent_score = "No score yet";
-                                      opponent_score = "N/A";
+                                    if (attribute.innerHTML == "") {                          
+                                      opponent_score = "-";                            
                                     }
                                     gameDict.set("opponent_score", opponent_score)
                                     // console.log(opponent_score)
                                   }else if (attribute.nodeName == "team_score"){
                                     home_score = attribute.innerHTML
                                     if (attribute.innerHTML == "") {
-                                      // home_score = "No score yet";
-                                      home_score = "N/A";
+                                      home_score = "-";                                      
                                     }
                                     gameDict.set("home_score", home_score)
                                     // console.log(home_score)
@@ -299,6 +297,10 @@
                           // home_score = document.createElement("p")
                           home_score = document.createElement("span")
                           home_score.innerText = game.get("home_score")
+                          if (home_score.innerText == "-") {
+                            home_score.style.color = "rgb(100,100,100)"
+                            home_score.style.right = "30px"
+                          }
                           home_score.className = "home_score";
                           // game_body_div.appendChild(home_score)
                           home_team_div.appendChild(home_score)
@@ -330,6 +332,10 @@
                           //Opposing Team score
                           opp_score = document.createElement("span")
                           opp_score.innerText = game.get("opponent_score")
+                          if (opp_score.innerText == "-") {
+                            opp_score.style.color = "rgb(100,100,100)"
+                            opp_score.style.right = "30px"
+                          }
                           opp_score.className = "opponent_score";
                           // game_body_div.appendChild(opp_score)
                           opp_team_div.appendChild(opp_score)
