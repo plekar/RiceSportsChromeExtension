@@ -243,7 +243,7 @@
                           
                           //Adding Time Information
                           time = document.createElement("div")
-                          time.innerText = "@" + game.get("time")
+                          time.innerText = game.get("time")
                           time.className = "time";
                           game_body_div.appendChild(time)
 
