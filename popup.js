@@ -98,10 +98,10 @@
     }
 
     function choose_working_link(boxscore_link, recap_link) {
-      if (boxscore_link != "") {
-        return boxscore_link
-      } else {
+      if (recap_link != "") {
         return recap_link
+      } else {
+        return boxscore_link
       }
 
     }
