@@ -112,8 +112,9 @@
 .home_score {
   font-size : 15px;
   font-weight: bold;
-  margin-left: 20px;
-  /* right: 40px */
+  /*margin-left: 20px;*/
+  position: absolute;
+  right: 20px
 }
 .opponent_name {
   font-size : 15px;
@@ -142,8 +143,10 @@
   font-size : 15px;
   
   font-weight: bold;
-  margin-left: 20px;
-  /* right: 40px; */
+  /*margin-left: 20px;*/
+  position: absolute;
+
+  right: 20px;
 }
 
 .tab {
