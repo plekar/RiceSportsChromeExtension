@@ -16,14 +16,17 @@
 
     // Sport Images Dictionary
     let sportImgs = new Map();
-    sportImgs.set("WSWIM", 'women_swimming.png')
-    sportImgs.set("WBB", 'women_basketball.png')
-    sportImgs.set("WTEN", 'women_tennis.png')
-    sportImgs.set("WVB", 'women_volleyball.png')
-    sportImgs.set("BB", 'men_baseball.png')
-    sportImgs.set("MBB", 'men_basketball.png')
-    sportImgs.set('MGOLF', 'men_golf.png')
-    sportImgs.set('MTEN', 'men_tennis.png')
+    sportImgs.set("Swimming", 'women_swimming.png')
+    sportImgs.set("Women's Basketball", 'women_basketball.png')
+    sportImgs.set("Women's Tennis", 'women_tennis.png')
+    sportImgs.set("Women's Volleyball", 'women_volleyball.png')
+    sportImgs.set("Baseball", 'men_baseball.png')
+    sportImgs.set("Men's Basketball", 'men_basketball.png')
+    sportImgs.set("Men's Golf", 'men_golf.png')
+    sportImgs.set("Men's Tennis", 'men_tennis.png')
+    sportImgs.set("Track", 'women_track.JPG')
+    sportImgs.set("Men's Football", 'men_football.png')
+    sportImgs.set("Soccer", 'women_soccer.png')
 
       console.log("today's date", today)
     console.log("today's day", today.getDate())
@@ -128,21 +131,23 @@
                             //iteration over the information
                             // for (valIdx = 0; valIdx < childNodeLen; valIdx++) { //iterating through the game's attributes
                             for (attribute of game_attributes) { //iterating through the game's attributes
-                                   
+                                  if (attribute.nodeName == "sport") {
+                                    gameDict.set("sport_fullname", attribute.innerHTML)
+                                  }
                                   // console.log("spec attr", attribute)
                                   if (attribute.nodeName == "sport_abbrev"){
                                     // sportType = "sport: " + attribute.innerHTML
-                                    gameDict.set("sport", attribute.innerHTML)
+                                    gameDict.set("sport_abbrev", attribute.innerHTML)
                                     // console.log(sportType)
                                   }
                                   else if (attribute.nodeName == "opponent") {
                                     gameDict.set("opponent_name", attribute.innerHTML)
-                                }
+                                  }
                                   else if (attribute.nodeName == "status") {
-                                      gameDict.set("status", attribute.innerHTML)
+                                    gameDict.set("status", attribute.innerHTML)
                                   }
                                   else if (attribute.nodeName == "boxscore_link") {
-                                      gameDict.set("link", attribute.innerHTML)
+                                    gameDict.set("link", attribute.innerHTML)
                                   }
                                   else if (attribute.nodeName == "date"){
                                     date = "date: " + attribute.innerHTML;
@@ -220,6 +225,7 @@
                       numgames = gameList.length;
                       console.log("numgames", numgames)
                       game_cnt = 1;
+                      // console.log(gameList)
                       for (game of gameList) {
                           // console.log("game" + game)
                           var game_anchor = document.createElement("a");
@@ -236,12 +242,12 @@
 
                           //Header - sport type
                           sport = document.createElement("p")
-                          sport.innerText = game.get("sport")
+                          sport.innerText = game.get("sport_abbrev")
                           sport.className = "sport_type";
                           game_header_div.appendChild(sport)
                           var sportImg = document.createElement("img")
                           sportImg.className="sport_image"
-                          sportImg.setAttribute("src", chrome.runtime.getURL(sportImgs.get(sport.innerText)))
+                          sportImg.setAttribute("src", chrome.runtime.getURL(sportImgs.get(game.get("sport_fullname"))))
 
                           game_header_div.appendChild(sportImg)
 
