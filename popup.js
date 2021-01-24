@@ -26,10 +26,9 @@
     sportImgs.set("Men's Tennis", 'men_tennis.png')
     sportImgs.set("Track", 'women_track.JPG')
     sportImgs.set("Men's Football", 'men_football.png')
-    sportImgs.set("Soccer", 'women_soccer.png')
-
-      console.log("today's date", today)
-    console.log("today's day", today.getDate())
+    sportImgs.set("Women's Soccer", 'women_soccer.png')
+      // console.log("today's date", today)
+    // console.log("today's day", today.getDate())
     let dd = String(today.getDate());
     // console.log("today's month", today.getMonth() + 1) //January is 0
     let mm = String(today.getMonth() + 1);
@@ -70,7 +69,7 @@
     }
 
     function openCity(evt, dateID) {
-        console.log(dateID)
+        // console.log(dateID)
         // Declare all variables
         var i, tabcontent, tablinks;
         // Get all elements with class="date_div" and hide them
@@ -164,7 +163,7 @@
                                   else if (attribute.nodeName == "date"){
                                     date = "date: " + attribute.innerHTML;
                                     dateKey = attribute.innerHTML.split(" ")[0];
-                                    console.log("date and time", attribute.innerHTML.split(" "))
+                                    // console.log("date and time", attribute.innerHTML.split(" "))
                                     time_number = attribute.innerHTML.split(" ")[1]
                                     pm_or_am = attribute.innerHTML.split(" ")[2]
                                     adjusted_time = time_number.substring(0, time_number.length - 3)
@@ -233,7 +232,7 @@
                       row_div.className = "row_div";
                       let row_limit = 3;
                       numgames = gameList.length;
-                      console.log("numgames", numgames)
+                      // console.log("numgames", numgames)
                       game_cnt = 1;
                       // console.log(gameList)
                       for (game of gameList) {
@@ -258,6 +257,7 @@
                           var sportImg = document.createElement("img")
                           sportImg.className="sport_image"
                           let sport_name = game.get("sport_fullname")
+                          console.log("sport_name", sport_name)
                           sportImg.setAttribute("src", chrome.runtime.getURL(sportImgs.get(sport_name)))
 
                           game_header_div.appendChild(sportImg)
@@ -371,7 +371,7 @@
                           game_cnt += 1
                          
                       }
-                      console.log("tempdiv", date_div)
+                      // console.log("tempdiv", date_div)
                       document.body.appendChild(date_div)
 
                     }
