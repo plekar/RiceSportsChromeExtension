@@ -257,7 +257,8 @@
                           game_header_div.appendChild(sport)
                           var sportImg = document.createElement("img")
                           sportImg.className="sport_image"
-                          sportImg.setAttribute("src", chrome.runtime.getURL(sportImgs.get(game.get("sport_fullname"))))
+                          let sport_name = game.get("sport_fullname")
+                          sportImg.setAttribute("src", chrome.runtime.getURL(sportImgs.get(sport_name)))
 
                           game_header_div.appendChild(sportImg)
 
