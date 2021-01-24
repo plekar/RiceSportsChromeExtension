@@ -13,7 +13,9 @@
     "women_soccer.png",
     "men_golf.png",
     "women_track.JPG",
-    "men_tennis.png"],
+    "men_tennis.png",
+    "men_xc.png",
+    "women_xc.png"],
 
   "name": "Rice Sports Test",
   "description": "This extension will help us test chrome extension usage.",
