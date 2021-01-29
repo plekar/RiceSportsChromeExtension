@@ -17,8 +17,8 @@
     "men_xc.png",
     "women_xc.png"],
 
-  "name": "Rice Sports Test",
-  "description": "This extension will help us test chrome extension usage.",
+  "name": "Rice Sports",
+  "description": "Easily view the scores for Rice Sports.",
   "version": "1.0",
 
   "browser_action": {
@@ -29,6 +29,5 @@
     "128": "bigger_rice_icon.png"
   },
   "permissions": [
-   "activeTab"
    ]
 }
