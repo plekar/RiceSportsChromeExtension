@@ -140,7 +140,7 @@
     //TODO: Could put all the xhttp in an async function. Wait for all the information to be generated and put on the html and then store the information from date dict. 
     
     var xhttp = new XMLHttpRequest(); //prepping the XML Request
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = async function() {
             
             if (this.readyState == 4 && this.status == 200) {
 
@@ -427,26 +427,46 @@
                       // console.log("close date", close_date)
                       document.getElementById("tab_" + close_date).click();
                     }
+                    return(dateDict)
                     }
-                  display_ui(x)
-            chrome.storage.sync.set({"arg1": dateDict.entries()}, function() {
-              console.log('dict Cached:' + dateDict.entries());
-              // console.log(dateDict.entries())
-            });
-            chrome.storage.sync.get("arg1", function(data) {
-              console.log('dict Cached:' + data.arg1);
-              // console.log(dateDict.entries())
-            });
+                    function save_info(info_game) {
+                        chrome.storage.local.set({"gm": info_game.entries()}, function() {
+                          console.log('dict Cached:', info_game.entries());
+                          //return "success"
+                        });
+                        chrome.storage.local.get("gm", function(data) {
+                          console.log('dict returned:' + data.gm);
+                          // console.log(dateDict.entries())
+                        });
 
+                    }
+                  game_info = await display_ui(x)
+                  await save_info(game_info)
+                  // console.log("success?", respond)
+
+                  // const prom_return = new Promise((resolve, reject) => display_ui(x)).then( value => {
+                  //   chrome.storage.sync.set({"arg2": value}, function() {
+                  //     console.log('dict Cached:', value);
+                  //     // console.log(dateDict.entries())
+                  //   });
+                  // }
+
+                  // )
+            
+            
 
             
     
             }
-            // else {
-            //   var error_div = document.createElement("div")
-            //   error_div.innerHTML = "Requesting error :("
-            //   document.body.append(error_div)
-            // }
+            else {
+              chrome.storage.local.get("gm", function(data) {
+                console.log('dict Cached:' + data.gm);
+                // console.log(dateDict.entries())
+              });
+              // var error_div = document.createElement("div")
+              // error_div.innerHTML = "Requesting error :("
+              // document.body.append(error_div)
+            }
             
             
             };
