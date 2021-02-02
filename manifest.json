@@ -29,6 +29,5 @@
     "128": "bigger_rice_icon.png"
   },
   "permissions": [
-    "storage"
    ]
 }

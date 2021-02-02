@@ -72,6 +72,9 @@
     position: relative;
     /* position: absolute; */
 }
+.past_game:hover {
+  opacity: 0.5;
+}
 /* .date {
   font-size : 10px;
   position: absolute;

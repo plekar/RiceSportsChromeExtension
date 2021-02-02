@@ -115,8 +115,18 @@
       } else {
         return boxscore_link
       }
-
     }
+    //Setting the class of the game body based on if the game has past
+    function set_class_type(anchor_link) {
+      console.log(anchor_link)
+      if (anchor_link == "") { //The game hasn't happened yet
+        return "game_body"
+      }
+      else{
+        return "game_body past_game"
+      }
+    }
+    //TODO: Could put all the xhttp in an async function. Wait for all the information to be generated and put on the html and then store the information from date dict. 
     
     var xhttp = new XMLHttpRequest(); //prepping the XML Request
     xhttp.onreadystatechange = function() {
@@ -224,18 +234,21 @@
                             // console.log(arr)
                     }
 
-                    console.log("datedict", dateDict)
+                    // console.log("datedict", dateDict)
                     //Caching all the game information
-                    chrome.storage.local.set({"dateDict": dateDict}, function() {
-                      console.log('Info Cached:' + dateDict.entries());
-                      // console.log(dateDict.entries())
-                    });
-                    chrome.storage.local.get(['dateDict'], function(result) {
-                      console.log('Value currently is ' + result.key);
-                    });
+                    //need to put "storage" in the permission array later, when updating the code.
+                    // chrome.storage.local.set({"dateDict": dateDict}, function() {
+                    //   console.log('Info Cached:' + dateDict.entries());
+                    //   // console.log(dateDict.entries())
+                    // });
+                    // chrome.storage.local.get(['dateDict'], function(result) {
+                    //   console.log('Value currently is ' + result.key);
+                    // });
+
                     //Creating the structure of the pages
                     var tab_div = document.createElement("div");
                     tab_div.className = "tab"
+                    //Displaying all the game information 
                     for (const [date , gameList] of dateDict.entries()) {
                       console.log("date", date)
                       var date_div = document.createElement("div");
@@ -258,7 +271,8 @@
                       for (game of gameList) {
                           // console.log("game" + game)
                           var game_anchor = document.createElement("a");
-                          game_anchor.href = choose_working_link(game.get("link"), game.get("recap_link"))
+                          recap_link = choose_working_link(game.get("link"), game.get("recap_link"))
+                          game_anchor.href = recap_link
                           game_anchor.target = "_blank"
                           game_anchor.className = "link_wrapping"
                           // console.log("game link", game.get("link"))
@@ -283,7 +297,9 @@
                           game_header_div.appendChild(sportImg)
 
                           var game_body_div = document.createElement("div")
-                          game_body_div.className = "game_body";
+                          // game_body_div.className = "game_body";
+                          game_body_div.className = set_class_type(recap_link);
+
 
                           //Adding Time Information
                           time = document.createElement("div")
@@ -404,7 +420,6 @@
                     today_date = mm + "/" + dd + "/" + yr
                     // today_date = "1" + "/" + "23" + "/" + "2021"
                     //Setting Default Tab
-
                     if (dateDict.has(today_date)){
                       document.getElementById("tab_" + today_date).click();
                     } else { //Get the closest date. Let's default to the third one
