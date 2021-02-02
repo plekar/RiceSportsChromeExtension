@@ -225,7 +225,14 @@
                     }
 
                     console.log("datedict", dateDict)
-                    
+                    //Caching all the game information
+                    chrome.storage.local.set({"dateDict": dateDict}, function() {
+                      console.log('Info Cached:' + dateDict.entries());
+                      // console.log(dateDict.entries())
+                    });
+                    chrome.storage.local.get(['dateDict'], function(result) {
+                      console.log('Value currently is ' + result.key);
+                    });
                     //Creating the structure of the pages
                     var tab_div = document.createElement("div");
                     tab_div.className = "tab"
