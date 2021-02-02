@@ -13,6 +13,17 @@
     var orig_txt;
     let dateDict = new Map();
     var today = new Date()
+    var hello = "hey"
+    chrome.storage.sync.set({"arg1": hello}, function() {
+      console.log('Info Cached:' + hello);
+      // console.log(dateDict.entries())
+    });
+    chrome.storage.sync.get("arg1", function(data) {
+      console.log('Info Cached:' + data.arg1);
+      // console.log(dateDict.entries())
+    });
+
+    
 
     // Sport Images Dictionary
     let sportImgs = new Map();
@@ -118,7 +129,7 @@
     }
     //Setting the class of the game body based on if the game has past
     function set_class_type(anchor_link) {
-      console.log(anchor_link)
+      // console.log(anchor_link)
       if (anchor_link == "") { //The game hasn't happened yet
         return "game_body"
       }
@@ -132,9 +143,8 @@
     xhttp.onreadystatechange = function() {
             
             if (this.readyState == 4 && this.status == 200) {
-                    // console.log("The full xml", this.responseText);
-                    
-            //document.getElementById("demo").innerHTML = this.responseText;
+
+                  
                     orig_txt = this.responseText;
                     parser = new DOMParser();
                     xmlDoc = parser.parseFromString(orig_txt,"text/xml")//First parameter is the xml text and the second parameter is the content type of the 
@@ -142,7 +152,7 @@
                     // console.log(x);
                     // console.log(x.length);
                     let count = 0;
-                    
+                    function display_ui(x) {
                     //iterating over all the games in the stream
                     for (i = 1; i < x.length-1; i = i+2) {
                             //console.log(i);
@@ -233,24 +243,13 @@
                             dateDict.set(dateKey, arr);
                             // console.log(arr)
                     }
-
-                    // console.log("datedict", dateDict)
-                    //Caching all the game information
-                    //need to put "storage" in the permission array later, when updating the code.
-                    // chrome.storage.local.set({"dateDict": dateDict}, function() {
-                    //   console.log('Info Cached:' + dateDict.entries());
-                    //   // console.log(dateDict.entries())
-                    // });
-                    // chrome.storage.local.get(['dateDict'], function(result) {
-                    //   console.log('Value currently is ' + result.key);
-                    // });
-
+                    
                     //Creating the structure of the pages
                     var tab_div = document.createElement("div");
                     tab_div.className = "tab"
                     //Displaying all the game information 
                     for (const [date , gameList] of dateDict.entries()) {
-                      console.log("date", date)
+                      // console.log("date", date)
                       var date_div = document.createElement("div");
                       date_div.id = date
                       date_div.className = "date_div";
@@ -425,15 +424,33 @@
                     } else { //Get the closest date. Let's default to the third one
                       keylist = Array.from(dateDict.keys())
                       close_date = keylist[2]
-                      console.log("close date", close_date)
+                      // console.log("close date", close_date)
                       document.getElementById("tab_" + close_date).click();
                     }
-            }
-
+                    }
+                  display_ui(x)
+            chrome.storage.sync.set({"arg1": dateDict.entries()}, function() {
+              console.log('dict Cached:' + dateDict.entries());
+              // console.log(dateDict.entries())
+            });
+            chrome.storage.sync.get("arg1", function(data) {
+              console.log('dict Cached:' + data.arg1);
+              // console.log(dateDict.entries())
+            });
 
 
             
-    };
+    
+            }
+            // else {
+            //   var error_div = document.createElement("div")
+            //   error_div.innerHTML = "Requesting error :("
+            //   document.body.append(error_div)
+            // }
+            
+            
+            };
+
 
     //open prepares an http request to be sent
     xhttp.open("GET", "https://cors-anywhere.herokuapp.com/http://riceowls.com/services/scores.aspx", true); 
