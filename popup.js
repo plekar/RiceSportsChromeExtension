@@ -385,12 +385,18 @@
                           game_box_div.appendChild(game_header_div)
                           game_box_div.appendChild(game_body_div)
                           // game_body_div.appendChild(word)
-                          game_anchor.appendChild(game_box_div);
+                          //Adding the anchor only if there's an actual recap link
+                          if (recap_link == "") { //No link
+                              row_div.appendChild(game_box_div)
+                          } else {
+                            game_anchor.appendChild(game_box_div)
 
-                          // game_anchor.appendChild(game_body_div);
-                          // date_div.appendChild(game_anchor);
+                            row_div.appendChild(game_anchor)
+                          }
+                          
+                          // game_anchor.appendChild(game_box_div)
 
-                          row_div.appendChild(game_anchor)
+                          // row_div.appendChild(game_anchor)
                           if (row_item_cnt == row_limit - 1) { //We stop at row limit-1 because we're starting our count at 0
                             //add row div to the date div
                             date_div.appendChild(row_div);
