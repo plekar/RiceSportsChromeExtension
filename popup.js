@@ -426,6 +426,7 @@
                       keylist = Array.from(dateDict.keys())
                       close_date = keylist[2]
                       console.log("close date", close_date)
+                      // document.getElementById("tab_" + close_date).innerHTML = "Today"
                       document.getElementById("tab_" + close_date).click();
                     }
             }
