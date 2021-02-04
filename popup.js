@@ -434,8 +434,10 @@
     };
 
     //open prepares an http request to be sent
-    xhttp.open("GET", "https://cors-anywhere.herokuapp.com/http://riceowls.com/services/scores.aspx", true); 
+    // xhttp.open("GET", "https://cors-anywhere.herokuapp.com/http://riceowls.com/services/scores.aspx", true);
     //this actually sends the request
+    xhttp.open("GET", "http://riceowls.com/services/scores.aspx", true);
+
     xhttp.send();
     
     // var game_body_div = document.createElement("div")
