@@ -171,6 +171,9 @@
                                     gameDict.set("sport_abbrev", attribute.innerHTML)
                                     // console.log(sportType)
                                   }
+                                  else if (attribute.nodeName == "result") {
+                                    gameDict.set("result", attribute.innerHTML)
+                                  }
                                   else if (attribute.nodeName == "opponent") {
                                     gameDict.set("opponent_name", attribute.innerHTML)
                                   }
@@ -290,7 +293,7 @@
                           var game_body_div = document.createElement("div")
                           // game_body_div.className = "game_body";
                           game_body_div.className = set_class_type(recap_link);
-
+                          
 
                           //Adding Time Information
                           time = document.createElement("div")
@@ -298,6 +301,8 @@
                           time.className = "time";
                           game_body_div.appendChild(time)
 
+                          //Game Result Information 
+                          match_result = game.get("result")
                           //Creating the home team information div
                           home_team_div = document.createElement("div");
                           home_team_div.className = "home_team_div";
@@ -312,6 +317,7 @@
                           // game_body_div.appendChild(opp_logo)
                           home_team_div.appendChild(home_logo_span);
 
+                          //Game Res
                           //Home Team sport
                           // home_team_name = document.createElement("p")
                           home_team_name = document.createElement("span")
@@ -320,7 +326,7 @@
                           home_team_name.className = "home_team_name";
                           // game_body_div.appendChild(home_team)
                           home_team_div.appendChild(home_team_name)
-
+                          
                           //Home Team score
                           // home_score = document.createElement("p")
                           home_score = document.createElement("span")
@@ -328,6 +334,10 @@
                           if (home_score.innerText == "-") {
                             home_score.style.color = "rgb(100,100,100)"
                             home_score.style.right = "30px"
+                          }
+                          if (match_result == "L") {
+                            home_score.style.color = "rgb(100,100,100)"
+                            home_team_name.style.color = "rgb(100,100,100)"
                           }
                           home_score.className = "home_score";
                           // game_body_div.appendChild(home_score)
@@ -363,6 +373,10 @@
                           if (opp_score.innerText == "-") {
                             opp_score.style.color = "rgb(100,100,100)"
                             opp_score.style.right = "30px"
+                          }
+                          if (match_result == "W") {
+                            opp_score.style.color = "rgb(100,100,100)"
+                            opp_team_name.style.color = "rgb(100,100,100)"
                           }
                           opp_score.className = "opponent_score";
                           // game_body_div.appendChild(opp_score)
