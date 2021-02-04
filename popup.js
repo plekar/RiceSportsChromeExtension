@@ -234,16 +234,7 @@
                             // console.log(arr)
                     }
 
-                    // console.log("datedict", dateDict)
-                    //Caching all the game information
-                    //need to put "storage" in the permission array later, when updating the code.
-                    // chrome.storage.local.set({"dateDict": dateDict}, function() {
-                    //   console.log('Info Cached:' + dateDict.entries());
-                    //   // console.log(dateDict.entries())
-                    // });
-                    // chrome.storage.local.get(['dateDict'], function(result) {
-                    //   console.log('Value currently is ' + result.key);
-                    // });
+                    
 
                     //Creating the structure of the pages
                     var tab_div = document.createElement("div");
