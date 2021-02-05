@@ -52,13 +52,16 @@
 
 
     
-    //This function changes the time to Final if the game is over and Postponed if the game was postponed
+    //This function changes the time to Final if the game is over and Postponed if the game was postponed and canceled if the game was canceled
     function update_time(time, status) {
       if (status == "O") {
         return "Final"
       }
       if (status == "P") {
         return "Postponed"
+      }
+      if (status == "C") {
+        return "Canceled"
       }
       return time
     }
