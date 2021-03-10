@@ -38,6 +38,8 @@
     sportImgs.set("MBB", 'men_basketball.png')
     sportImgs.set("MGOLF", 'men_golf.png')
     sportImgs.set("MTEN", 'men_tennis.png')
+    sportImgs.set("WXC", 'women_xc.png')
+    sportImgs.set("MXC", 'men_xc.png')
     sportImgs.set("FB", 'men_football.png')
 
       // console.log("today's date", today)
@@ -289,6 +291,7 @@
                           sportImg.className="sport_image"
                           // let sport_name = game.get("sport_fullname")
                           // console.log("sport_name", sport_name)
+                          console.log(sport.innerText);
                           sportImg.setAttribute("src", chrome.runtime.getURL(sportImgs.get(sport.innerText)))
 
                           game_header_div.appendChild(sportImg)
