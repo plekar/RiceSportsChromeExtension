@@ -179,6 +179,9 @@
                                   else if (attribute.nodeName == "result") {
                                     gameDict.set("result", attribute.innerHTML)
                                   }
+                                  else if (attribute.nodeName == "location_indicator") { //Home or away
+                                    gameDict.set("location_indicator", attribute.innerHTML)
+                                  }
                                   else if (attribute.nodeName == "opponent") {
                                     gameDict.set("opponent_name", attribute.innerHTML)
                                   }
@@ -309,6 +312,7 @@
 
                           //Game Result Information 
                           match_result = game.get("result")
+                          home_or_away = game.get("location_indicator");
                           //Creating the home team information div
                           home_team_div = document.createElement("div");
                           home_team_div.className = "home_team_div";
@@ -348,7 +352,7 @@
                           home_score.className = "home_score";
                           // game_body_div.appendChild(home_score)
                           home_team_div.appendChild(home_score)
-                          game_body_div.appendChild(home_team_div)
+                          // game_body_div.appendChild(home_team_div)
 
                           opp_team_div = document.createElement("div")//Opponent team's div
                           opp_team_div.className = "opp_team_div";
@@ -389,7 +393,16 @@
                           opp_team_div.appendChild(opp_score)
 
                           //Adding the opponent team information to the game body
-                          game_body_div.appendChild(opp_team_div)
+                          // game_body_div.appendChild(opp_team_div)
+
+                          //Adding the two team's information in an order that will tell me if Rice is at home or away
+                          if (home_or_away == "H") { //Put rice as the bottom (home team)
+                            game_body_div.appendChild(opp_team_div)
+                            game_body_div.appendChild(home_team_div)
+                          } else {
+                            game_body_div.appendChild(home_team_div)
+                            game_body_div.appendChild(opp_team_div)
+                          }
 
 
 
@@ -401,8 +414,11 @@
                               row_div.appendChild(game_box_div)
                           } else {
                             game_anchor.appendChild(game_box_div)
+                            //Creating an outer div so only divs will be in a row div
+                            outer_game_div = document.createElement("div");
 
-                            row_div.appendChild(game_anchor)
+                            outer_game_div.appendChild(game_anchor)
+                            row_div.appendChild(outer_game_div)
                           }
                           
                           // game_anchor.appendChild(game_box_div)
