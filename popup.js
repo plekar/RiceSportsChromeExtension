@@ -414,11 +414,13 @@
                               row_div.appendChild(game_box_div)
                           } else {
                             game_anchor.appendChild(game_box_div)
-                            //Creating an outer div so only divs will be in a row div
-                            outer_game_div = document.createElement("div");
+                            // //Creating an outer div so only divs will be in a row div
+                            // outer_game_div = document.createElement("div");
 
-                            outer_game_div.appendChild(game_anchor)
-                            row_div.appendChild(outer_game_div)
+                            // outer_game_div.appendChild(game_anchor)
+                            // row_div.appendChild(outer_game_div)
+                            game_anchor.appendChild(game_box_div)
+                            row_div.appendChild(game_anchor)
                           }
                           
                           // game_anchor.appendChild(game_box_div)
