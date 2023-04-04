@@ -1,8 +1,7 @@
 # RiceSportsChromeExtension
 Chrome extension for Rice Sports
 
-## Note
-Data source deprecated so the extension is no longer functional. 
+**[Note] Data source deprecated so the extension is no longer functional**
 
 
 ![image](https://user-images.githubusercontent.com/43530539/229642577-1bd9e526-fcb7-4536-9db9-13209b493ff3.png)
@@ -14,6 +13,12 @@ The current option to look at games was to go to the rice sports website but it 
 
 ## Solution
 A chrome extension that displays information for current, recent, and future rice sporting events with one click. No friction :)
+
+**Some Features:**
+- Utilize date tabs to check out recent and future games
+- Identify sports and details through simple game scoreboards
+- Click on past games for recaps and highlights
+- Clicking into games takes you to the Rice Sports website to see more details
 
 I documented a lot of the process and got some feedback from users (students) in this [twitter thread](https://twitter.com/pelufafowora/status/1350644654769844224)
 
