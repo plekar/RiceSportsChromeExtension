@@ -15,10 +15,10 @@ The current option to look at games was to go to the rice sports website but it 
 ## Solution
 A chrome extension that displays information for current, recent, and future rice sporting events with one click. No friction :)
 
-
+I documented a lot of the process and got some feedback from users (students) in this [twitter thread](https://twitter.com/pelufafowora/status/1350644654769844224)
 
 ## Learnings along the way
-- Desginging in Figma
-- JS, CSS, HTML
+- In order to create designs for the sports games, I learned some figma
+- JS, CSS, HTML -> This project was my first web dev experience. 
 
-If you want to see a deeper look into the process of building this, here’s a twitter post documenting it. I also used twitter to get some feedback from rice students during dev. [https://twitter.com/pelufafowora/status/1350644654769844224](https://twitter.com/pelufafowora/status/1350644654769844224)
+
